@@ -44,7 +44,7 @@ router.get("/login", (req, res) =>{
 //logout POST route, redirect to main page
 //LOGOUT should be GET route
 router.post("/logout", (req, res) => {
-  res.redirect("/main");
+  res.redirect("/index");
 });
 
 
