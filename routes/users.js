@@ -21,3 +21,95 @@ module.exports = (db) => {
   });
   return router;
 };
+
+
+router.get("/", (req, res) => {
+  res.render("index");
+});
+  //LOGIN/LOGOUT ROUTES
+
+//login GET route, render login page with login buttons
+router.get("/login/:id", (req, res) => {
+  req.session.user_id = req.params.id;
+  res.redirect('/');
+});
+
+router.get("/login", (req, res) =>{
+  res.render("user_login");
+})
+
+
+//logout POST route, redirect to main page
+//LOGOUT should be GET route
+router.post("/logout", (req, res) => {
+  res.redirect("/index");
+});
+
+
+//FAVOURITE ROUTES
+//favourites GET route
+router.get("/favourites", (req, res) => {
+  res.render("favourites");
+});
+router.post("/favourites", (req, res) => {});
+
+
+//SALES ROUTES
+router.get("/sales", (req, res) => {
+  res.render("sales");
+});
+
+//if user deletes ad
+router.post("/sales/delete", (req, res) => {
+
+  res.redirect("/myads");
+});
+
+//if user update ad
+router.post("/sales/update",(req, res) => {
+  res.redirect(`/${URL}`);
+});
+
+//if user posts ad
+router.post("/sales/post",(req, res) => {
+  res.redirect(`/${URL}`);
+});
+
+//MESSAGE ROUTES
+router.get("/messages", (req, res) => {
+  res.render("messages");
+});
+
+
+router.post("/messages", (req, res) => {
+  res.render("../views/messages");
+  //AJAX, template for messages, passing in user input as var, and render to page
+});
+
+
+router.get("/myads", (req, res) => {
+  res.render();
+});
+router.post("/myads", (req, res) => {
+  //AJAX, template for ads, passin in user input as var, and render to page
+});
+
+
+
+
+
+
+
+
+
+/*
+
+Main Feed: (/)
+Login: (/login)
+Admin: (/admin)
+My sales
+My Ads
+Logout
+Favourites: (/favourites)
+Messaging: (/inbox)
+*/
