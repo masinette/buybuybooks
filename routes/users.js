@@ -24,20 +24,21 @@ module.exports = (db) => {
   return router;
 };
 
-// const bodyParser = require("body-parser");
-// router.set("view engine", "ejs");
-// router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get("/", (req, res) => {
-  res.render("/index");
+  res.render("index");
 });
+  //LOGIN/LOGOUT ROUTES
 
-//LOGIN/LOGOUT ROUTES
 //login GET route, render login page with login buttons
-router.get("/login", (req, res) => {
-
-  res.render("/user_login");
+router.get("/login/:id", (req, res) => {
+  req.session.user_id = req.params.id;
+  res.redirect('/');
 });
+
+router.get("/login", (req, res) =>{
+  res.render("user_login");
+})
 
 
 //logout POST route, redirect to main page
@@ -50,7 +51,7 @@ router.post("/logout", (req, res) => {
 //FAVOURITE ROUTES
 //favourites GET route
 router.get("/favourites", (req, res) => {
-  res.render("/favourites");
+  res.render("favourites");
 });
 router.post("/favourites", (req, res) => {});
 
@@ -77,10 +78,13 @@ router.post("/sales/post",(req, res) => {
 });
 
 //MESSAGE ROUTES
-router.get("/messages/:id", (req, res) => {
-
+router.get("/messages", (req, res) => {
+  res.render("messages");
 });
-router.post("/messages/:id", (req, res) => {
+
+
+router.post("/messages", (req, res) => {
+  res.render("../views/messages");
   //AJAX, template for messages, passing in user input as var, and render to page
 });
 
