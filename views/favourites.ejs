@@ -11,6 +11,84 @@
   <%- include('partials/_headers.ejs') %>
   <p>FAVOURITES</p>
   <ul class = "favsList">
+<!-- user option bar, includes; my ads, my favourites, my messages
+    If you are on any of these pages, the option disappears. Example; if you're on my favs, the bar will only include my ads and my messages -->
+      <!-- class fav-out-box, the background has a white box -->
+      <div class="fav-out-box">
+        <!-- class row, aligns everything in row, id row is the class that is responsible of making things appear and disappear-->
+        <div class="row" id="row">
+          <a href="#">&nbsp;MY ADS&nbsp;</a>
+          <a href="#">&nbsp;MY FAVOURITES&nbsp;</a>
+          <a href="#">&nbsp;MY MESSAGES&nbsp;</a>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: row;">
+      <!-- class favourites, responsible for scroll -->
+      <div class="favourites" style="padding-left: 10px;">
+        <!-- class sales-out-box has white outter background box -->
+        <article class="sales-out-box">
+          <!-- for the user image -->
+          <div
+            style="height: 100px; width: 100px; background-color: blue"
+          ></div>
+          <p>NAME</p>
+          <p>$100</p>
+          <!-- class heart-bottom-right, aligns the heart to bottom right-->
+          <p class="heart-bottom-right">💙</p>
+        </article>
+        <div>
+          <button class="delete-button" style="background-color:blue; color:white;">DELETE</button>
+        </div>
+      </div>
+      <div class="favourites" style="padding-left: 10px;">
+        <!-- class sales-out-box has white outter background box -->
+        <article class="sales-out-box">
+          <!-- for the user image -->
+          <div
+            style="height: 100px; width: 100px; background-color: blue"
+          ></div>
+          <p>NAME</p>
+          <p>$100</p>
+          <!-- class heart-bottom-right, aligns the heart to bottom right-->
+          <p class="heart-bottom-right">💙</p>
+        </article>
+        <div>
+          <button class="delete-button" style="background-color:blue; color:white;">DELETE</button>
+        </div>
+      </div>
+      <div class="favourites" style="padding-left: 10px;">
+        <!-- class sales-out-box has white outter background box -->
+        <article class="sales-out-box">
+          <!-- for the user image -->
+          <div
+            style="height: 100px; width: 100px; background-color: blue"
+          ></div>
+          <p>NAME</p>
+          <p>$100</p>
+          <!-- class heart-bottom-right, aligns the heart to bottom right-->
+          <p class="heart-bottom-right">💙</p>
+        </article>
+        <div>
+          <button class="delete-button" style="background-color:blue; color:white;">DELETE</button>
+        </div>
+      </div>
+      <div class="favourites" style="padding-left: 10px;">
+        <!-- class sales-out-box has white outter background box -->
+        <article class="sales-out-box">
+          <!-- for the user image -->
+          <div
+            style="height: 100px; width: 100px; background-color: blue"
+          ></div>
+          <p>NAME</p>
+          <p>$100</p>
+          <!-- class heart-bottom-right, aligns the heart to bottom right-->
+          <p class="heart-bottom-right">💙</p>
+        </article>
+        <div>
+          <button class="delete-button" style="background-color:blue; color:white;">DELETE</button>
+        </div>
+      </div>
+    </div>
 
   </ul>
 </body>
