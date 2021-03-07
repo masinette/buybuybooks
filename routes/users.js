@@ -26,17 +26,14 @@ router.get("/", (req, res) => {
   res.render("index");
 });
 //LOGIN/LOGOUT ROUTES
-
 //login GET route, render login page with login buttons
 router.get("/login/:id", (req, res) => {
   req.session.user_id = req.params.id;
   res.redirect("/");
 });
-
 router.get("/login", (req, res) => {
   res.render("user_login");
 });
-
 //logout POST route, redirect to main page
 //LOGOUT should be GET route
 router.post("/logout", (req, res) => {
@@ -44,7 +41,6 @@ router.post("/logout", (req, res) => {
 });
 
 /*
-
 Main Feed: (/)
 Login: (/login)
 Admin: (/admin)
