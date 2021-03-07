@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="wclassth=device-wclassth, initial-scale=1.0"
@@ -17,14 +17,166 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+
+
+
+    <style>
+
+      .featureItem{
+        height: 175px;
+        width: 175px;
+        margin: 20px 20px;
+        text-align: center;
+        background-color: blue;
+      }
+      .saleItem{
+        list-style: none;
+        height: 350px;
+        width: 350px;
+        margin: 20px 20px;
+        text-align: center;
+        background-color: green;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+
+
+    </style>
+
+
+
+
   </head>
 
   <body>
-    <%- include('partials/_headers.ejs') %>
-    <h1>MAIN PAGE</h1>
-    <ul class = featuredItems>
-      <div></div>
+    <%- include('partials/_headers.ejs')%>
 
+
+
+    <h1>BUYBUYSELL</h1>
+
+    <div>
+    <ul class="row" style = "list-style: none;">
+
+      <li class="featureItem">
+        <div>
+          <img src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px"; width="100px"; alt="sterling archer">
+          <div class = "itemInfo">
+            <p>Namey Namerton</p>
+            <p>$100</p>
+          </div>
+        </div>
+      </li>
+      <li class="featureItem">
+        <div>
+          <img src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px"; width="100px"; alt="sterling archer">
+          <div class = "itemInfo">
+            <p>Namey Namerton</p>
+            <p>$100</p>
+          </div>
+        </div>
+      </li>      <li class="featureItem">
+        <div>
+          <img src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px"; width="100px"; alt="sterling archer">
+          <div class = "itemInfo">
+            <p>Namey Namerton</p>
+            <p>$100</p>
+          </div>
+        </div>
+      </li>      <li class="featureItem">
+        <div>
+          <img src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px"; width="100px"; alt="sterling archer">
+          <div class = "itemInfo">
+            <p>Namey Namerton</p>
+            <p>$100</p>
+          </div>
+        </div>
+      </li>      <li class="featureItem">
+        <div>
+          <img src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px"; width="100px"; alt="sterling archer">
+          <div class = "itemInfo">
+            <p>Namey Namerton</p>
+            <p>$100</p>
+          </div>
+        </div>
+      </li>      <li class="featureItem">
+        <div>
+          <img src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px"; width="100px"; alt="sterling archer">
+          <div class = "itemInfo">
+            <p>Namey Namerton</p>
+            <p>$100</p>
+          </div>
+        </div>
+      </li>
     </ul>
+    </div>
+
+
+
+    <div class="sales">
+      <!-- Filter (change to column), When you click filter button, the price asc and desc option pops up -->
+
+
+
+      <!-- Filter button always visible, click to toggle filter option buttons -->
+      <button>Filter</button>
+        <div class="filterButtons">
+          <button><p>Price</p></button>
+          <button><p>ASC | DESC</p></button>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div>
+      <ul class="row">
+        <li class="saleItem">
+          <div>
+            <img src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="250px"; width="250px"; alt="sterling archer">
+            <div class = "itemInfo">
+              <p>Namey Namerton</p>
+              <p>$100<span>&#x2665;</span></p>
+            </div>
+          </div>
+        </li>
+
+        <li class="saleItem">
+          <div>
+            <img src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="250px"; width="250px"; alt="sterling archer">
+            <div class = "itemInfo">
+              <p>Namey Namerton</p>
+              <p>$100<span>&#x2665;</span></p>
+            </div>
+          </div>
+        </li>
+
+        <li class="saleItem">
+          <div>
+            <img src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="250px"; width="250px"; alt="sterling archer">
+            <div class = "itemInfo">
+              <p>Namey Namerton</p>
+              <p>$100<span>&#x2665;</span></p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
   </body>
 </html>
