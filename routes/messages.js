@@ -1,3 +1,6 @@
+const express = require("express");
+const router = express.Router();
+
 //MESSAGE ROUTES
 router.get("/messages", (req, res) => {
   res.render("messages");

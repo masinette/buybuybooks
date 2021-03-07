@@ -1,3 +1,6 @@
+const express = require("express");
+const router = express.Router();
+
 router.get("/myads", (req, res) => {
   res.render();
 });

@@ -1,3 +1,6 @@
+const express = require("express");
+const router = express.Router();
+
 //FAVOURITE ROUTES
 //favourites GET route
 router.get("/favourites", (req, res) => {

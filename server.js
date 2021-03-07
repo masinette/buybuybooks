@@ -11,6 +11,13 @@ const app = express();
 const morgan = require("morgan");
 const cookieSession = require("cookie-session");
 
+//Importing Routes
+const favourites = require("./routes/favourites");
+const messages = require("./routes/messages");
+const myads = require("./routes/myads");
+const sales = require("./routes/sales");
+const users = require("./routes/users");
+
 app.use(
   cookieSession({
     name: "session",
