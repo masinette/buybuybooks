@@ -58,8 +58,8 @@ module.exports = (db) => {
 
   //LOGOUT should be GET route
   router.post("/logout", (req, res) => {
-    req.session.user_id = null;
-    res.redirect("/index");
+    req.session = null;
+    res.redirect("/");
   });
 
   return router;
