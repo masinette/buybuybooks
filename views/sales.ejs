@@ -4,12 +4,156 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Messages</title>
+    <title>My Sales</title>
+    <meta charset="UTF-8" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"/>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="./css/header.css" type="text/css" />
+    <link rel="stylesheet" href="./css/nav.css" type="text/css" />
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+
+
+    <style>
+      .wrapper{
+        margin-top: 100px;
+        padding: 50px;
+      }
+      .soldItem{
+        height: 100px;
+        width: 100px;
+        background-color: blue;
+      }
+      ul{
+        list-style: none;
+      }
+      p{
+        margin: 0;
+      }
+      .item{
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .buyer{
+        font-weight: bold;
+        color: royalblue;
+      }
+      .soldWrapper{
+        display: flex;
+        margin-bottom: 20px;
+
+        background-color: silver;
+      }
+      .soldInfo{
+        margin-left: 20px;
+        margin-top: 10px;
+      }
+      h1{
+        text-align: center;
+      }
+    </style>
+
   </head>
-  <body>
-    <%- include('./partials/_headers.ejs') %>
-    <main>
-      <p>MY SALES</p>
-    </main>
-  </body>
+
+<body>
+  <%- include('partials/_headers.ejs')%>
+
+  <div class = "wrapper">
+    <h1>MY SALES</h1>
+
+
+
+          <ul>
+            <!-- for the user image -->
+            <li class = "soldWrapper">
+              <div class="soldItem">
+                <img
+                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px";width="100px";alt="sterling archer"/>
+              </div>
+
+              <div class = "soldInfo">
+                <p class = "item">Secret Agent</p>
+                <p>message...example</p>
+                <p class = "buyer">Buyer</p>
+              </div>
+            </li>
+
+            <li class = "soldWrapper">
+              <div class="soldItem">
+                <img
+                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px";width="100px";alt="sterling archer"/>
+              </div>
+
+              <div class = "soldInfo">
+                <p class = "item">Secret Agent</p>
+                <p>message...example</p>
+                <p class = "buyer">Buyer</p>
+              </div>
+            </li>
+
+            <li class = "soldWrapper">
+              <div class="soldItem">
+                <img
+                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px";width="100px";alt="sterling archer"/>
+              </div>
+
+              <div class = "soldInfo">
+                <p class = "item">Secret Agent</p>
+                <p>message...example</p>
+                <p class = "buyer">Buyer</p>
+              </div>
+            </li>
+
+            <li class = "soldWrapper">
+              <div class="soldItem">
+                <img
+                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px";width="100px";alt="sterling archer"/>
+              </div>
+
+              <div class = "soldInfo">
+                <p class = "item">Secret Agent</p>
+                <p>message...example</p>
+                <p class = "buyer">Buyer</p>
+              </div>
+            </li>
+
+            <li class = "soldWrapper">
+              <div class="soldItem">
+                <img
+                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px";width="100px";alt="sterling archer"/>
+              </div>
+
+              <div class = "soldInfo">
+                <p class = "item">Secret Agent</p>
+                <p>message...example</p>
+                <p class = "buyer">Buyer</p>
+              </div>
+            </li>
+
+            <li class = "soldWrapper">
+              <div class="soldItem">
+                <img
+                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px";width="100px";alt="sterling archer"/>
+              </div>
+
+              <div class = "soldInfo">
+                <p class = "item">Secret Agent</p>
+                <p>message...example</p>
+                <p class = "buyer">Buyer</p>
+              </div>
+            </li>
+        </ul>
+
+
+
+  </div>
+</body>
 </html>

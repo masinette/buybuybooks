@@ -3,8 +3,16 @@ const router = express.Router();
 
 //SALES ROUTES
 router.get("/mysales", (req, res) => {
-  res.send("SALES PAGE");
+  res.render("sales");
 });
+
+module.exports = router;
+
+
+
+
+
+
 // //if user deletes ad
 // router.post("/sales/delete", (req, res) => {
 //   res.redirect("/myads");
