@@ -8,12 +8,15 @@
 </head>
 
 <body>
-  <%- include('partials/_headers.ejs') %>
   <p>USER LOGIN</p>
+  <form action="/login" method="POST">
+    <input type="text" name="username"></input>
+    <button type="submit">Submit</button>
+  </form>
+  <!-- <a id= "user1" href = "/login/1">User 1 log in </a>
 
-  <a href = "/login/1">User 1 log in </a>
-  <a href = "/login/2">User 2 log in </a>
-  <a href = "/login/3">User 3 log in </a>
+  <a id = "user2" href = "/login/2">User 2 log in </a>
+  <a id = "user3" href = "/login/3">User 3 log in </a> -->
 
   </body>
 </html>

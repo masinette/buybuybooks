@@ -3,7 +3,8 @@ const router = express.Router();
 
 //MESSAGE ROUTES
 router.get("/messages", (req, res) => {
-  res.send("MESSAGES PAGE");
+  res.render("messages");
+  // res.send("MESSAGES PAGE");
 });
 router.post("/messages", (req, res) => {
   res.render("messages");
