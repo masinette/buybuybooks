@@ -58,6 +58,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use(favourites);
 app.use(messages);
 app.use(myAds);
+app.use(sales);
 
 // Note: mount other resources here, using the same pattern above
 
