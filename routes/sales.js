@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 //SALES ROUTES
-router.get("/mysales", (req, res) => {
+router.get("/sales", (req, res) => {
   res.render("sales");
 });
 
