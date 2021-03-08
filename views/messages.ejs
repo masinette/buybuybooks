@@ -7,9 +7,69 @@
   <title>My Messages</title>
 </head>
 <body>
-  <%- include('../partials/_headers.ejs') %>
+  <%- include('partials/_headers.ejs') %>
   <main>
     <p>MESSAGES</p>
+    <!-- user option bar, includes; my ads, my favourites, my messages
+    If you are on any of these pages, the option disappears. Example; if you're on my favs, the bar will only include my ads and my messages -->
+      <!-- class fav-out-box, the background has a white box -->
+      <div class="fav-out-box">
+        <!-- class row, aligns everything in row, id row is the class that is responsible of making things appear and disappear-->
+        <div class="row" id="row">
+          <a href="#">&nbsp;MY ADS&nbsp;</a>
+          <a href="#">&nbsp;MY FAVOURITES&nbsp;</a>
+          <a href="#">&nbsp;MY MESSAGES&nbsp;</a>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: row;"></div>
+      <div class="favourites" style="padding-left: 10px; background-color: #F0F0F0;">
+        <!-- class sales-out-box has white outter background box -->
+        <article class="sales-out-box" style="display: flex; flex-direction: row;">
+          <!-- for the user image -->
+          <div
+            style="height: 100px; width: 100px; background-color: blue; margin-top: 10px;">
+          </div>
+          <div style="flex-direction: column;">
+          <p style="padding-left: 10px;">TITLE<br><br>Hi, is this still available?<br><br>BOBBY</p>
+          </div>
+        </article>
+      </div>
+      <div class="favourites" style="padding-left: 10px; background-color: #F0F0F0;">
+        <!-- class sales-out-box has white outter background box -->
+        <article class="sales-out-box" style="display: flex; flex-direction: row;">
+          <!-- for the user image -->
+          <div
+            style="height: 100px; width: 100px; background-color: blue; margin-top: 10px;">
+          </div>
+          <div style="flex-direction: column;">
+          <p style="padding-left: 10px;">TITLE<br><br>Hi, is this still available?<br><br>DAVID</p>
+          </div>
+        </article>
+      </div>
+      <div class="favourites" style="padding-left: 10px; background-color: #F0F0F0;">
+        <!-- class sales-out-box has white outter background box -->
+        <article class="sales-out-box" style="display: flex; flex-direction: row;">
+          <!-- for the user image -->
+          <div
+            style="height: 100px; width: 100px; background-color: blue; margin-top: 10px;">
+          </div>
+          <div style="flex-direction: column;">
+          <p style="padding-left: 10px;">TITLE<br><br>Hi, is this still available?<br><br>THOMAS</p>
+          </div>
+        </article>
+      </div>
+      <div class="favourites" style="padding-left: 10px; background-color: #F0F0F0;">
+        <!-- class sales-out-box has white outter background box -->
+        <article class="sales-out-box" style="display: flex; flex-direction: row;">
+          <!-- for the user image -->
+          <div
+            style="height: 100px; width: 100px; background-color: blue; margin-top: 10px;">
+          </div>
+          <div style="flex-direction: column;">
+          <p style="padding-left: 10px;">TITLE<br><br>Hi, is this still available?<br><br>JERRAMY</p>
+          </div>
+        </article>
+      </div>
   </main>
 </body>
 </html>
