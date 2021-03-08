@@ -23,15 +23,10 @@ module.exports = (db) => {
       });
   });
 
-
-  // router.get("/", (req, res) => {
-  //   console.log("cookie", req.session.user_id)
-
-  //   res.render("index");
-  // });
   //LOGIN/LOGOUT ROUTES
   //login GET route, render login page with login buttons
   router.get("/login/:id", (req, res) => {
+    console.log("id", req.params.id)
     req.session.user_id = req.params.id;
     res.redirect("/");
   });
@@ -63,6 +58,7 @@ module.exports = (db) => {
 
   //LOGOUT should be GET route
   router.post("/logout", (req, res) => {
+    req.session.user_id = null;
     res.redirect("/index");
   });
 
