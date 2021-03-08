@@ -23,6 +23,7 @@ module.exports = (db) => {
 };
 
 router.get("/", (req, res) => {
+  data = req.body;
   res.render("index");
 });
 //LOGIN/LOGOUT ROUTES
