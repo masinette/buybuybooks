@@ -14,8 +14,9 @@ module.exports = (db) => {
     db.query(`SELECT * FROM users;`)
       .then((data) => {
         const users = data.rows;
+        console.log(users)
         data = req.body;
-        res.render("index");
+        res.render("index", data);
         // res.json({ users });
       })
       .catch((err) => {
@@ -31,24 +32,34 @@ module.exports = (db) => {
     res.redirect("/");
   });
   router.get("/login", (req, res) => {
-    const user_id = req.session.user_id;
-    // const templateVars = { user: users[user_id] };, templateVars)
+
+  const templateVars = { user: req.body.username };
+  if (!templateVars.user) {
+    const templateVars = { user: null };
     res.render("user_login");
+  } else {
+    res.redirect(`/`);
+  }
+
+    // // const templateVars = { user: users[user_id] };, templateVars)
+    // res.render("user_login");
   });
   //logout POST route, redirect to main page
   router.post("/login", (req, res) => {
-    let user = req.body.username;
-    console.log("username", user)
-    req.session.user_id = user;
-
+    const user = req.body.username;
+    // console.log("username", user)
     const queryString = `SELECT * FROM users WHERE name = $1;`
     db.query(queryString, [user])
     .then(results => {
       console.log("results", results.rows)
       if(results.rows.length > 0) {
+        // Create session only if user exists in database or retrieve session id
+        req.session.user_id = user;
         res.redirect("/")
       } else {
-        res.redirect("/login")
+        // res.redirect("/login")
+        res.end('User Does Not Exist.');
+        return;
       }
     })
     .catch(err => {
