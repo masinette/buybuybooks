@@ -25,12 +25,5 @@ module.exports = (db) => {
         res.status(!200).json({ error: err.message });
       });
   });
-
-  // router.post("/sales/post", (req, res) => {
-  //   res.redirect(`/${URL}`);
-  // });
-  // router.post("/sales/delete", (req, res) => {
-  //   res.redirect("/myads");
-  // });
   return router;
 };
