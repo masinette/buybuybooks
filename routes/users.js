@@ -7,7 +7,7 @@
 
 const express = require("express");
 const router = express.Router();
-const cookieSession = require('cookie-session');
+const cookieSession = require("cookie-session");
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -26,34 +26,34 @@ module.exports = (db) => {
   //LOGIN/LOGOUT ROUTES
   //login GET route, render login page with login buttons
   router.get("/login/:id", (req, res) => {
-    console.log("id", req.params.id)
-    req.session.user_id = req.params.id;
+    console.log("id", req.params.id);
+    req.session = req.params;
     res.redirect("/");
   });
   router.get("/login", (req, res) => {
-    const user_id = req.session.user_id;
+    const user_id = req.session;
     // const templateVars = { user: users[user_id] };, templateVars)
     res.render("user_login");
   });
   //logout POST route, redirect to main page
   router.post("/login", (req, res) => {
     let user = req.body.username;
-    console.log("username", user)
-    req.session.user_id = user;
+    console.log("username", user);
+    req.session = user;
 
-    const queryString = `SELECT * FROM users WHERE name = $1;`
+    const queryString = `SELECT * FROM users WHERE name = $1;`;
     db.query(queryString, [user])
-    .then(results => {
-      console.log("results", results.rows)
-      if(results.rows.length > 0) {
-        res.redirect("/")
-      } else {
-        res.redirect("/login")
-      }
-    })
-    .catch(err => {
-      console.log('query error:', err)
-    })
+      .then((results) => {
+        console.log("results", results.rows);
+        if (results.rows.length > 0) {
+          res.redirect("/");
+        } else {
+          res.redirect("/login");
+        }
+      })
+      .catch((err) => {
+        console.log("query error:", err);
+      });
   });
 
   //LOGOUT should be GET route
@@ -64,7 +64,6 @@ module.exports = (db) => {
 
   return router;
 };
-
 
 /*
 Main Feed: (/)
