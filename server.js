@@ -53,12 +53,12 @@ const myAds = require("./routes/myads");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/", usersRoutes(db));
+app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-app.use(favourites);
-app.use(messages);
+// app.use(favourites);
+// app.use(messages);
 app.use(myAds);
-app.use(sales);
+// app.use(sales);
 
 // Note: mount other resources here, using the same pattern above
 
