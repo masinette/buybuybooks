@@ -31,14 +31,14 @@ module.exports = (db) => {
     const userId = req.session.user_id;
     console.log("ItemID: ", itemId);
     console.log("UserId ", userId);
-    const sql = `INSER INTO favourites (userId, itemId) VALUES ($1, $2) RETURNING *;`
+    const sql = `INSERT INTO favourites (userId, itemId) VALUES ($1, $2) RETURNING *;`
     db.query(sql, [userId, itemId])
-    .then(data => {
-    res.redirect("/")
-     })
-    .catch(err => {
-    res.status(!200).jason({error: err.message});
-  });
+      .then(data => {
+        res.redirect("/")
+      })
+      .catch(err => {
+        res.status(!200).jason({ error: err.message });
+      });
   });
   /*
     router.post("/delete", (req, res) => {

@@ -57,10 +57,10 @@ const myAds = require("./routes/myads");
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-// app.use(favouritesRoutes);
+app.use("/favourites", favouritesRoutes(db));
 app.use("/messages", messagesRoutes(db));
-app.use(myAds);
-// app.use("/api/sales", salesRoutes(db));
+app.use("/myads", myAds(db));
+app.use("/sales", salesRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -68,11 +68,11 @@ app.use(myAds);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  console.log("getting users");
-  db.query(`SELECT * FROM users`)
+  console.log("getting items");
+  db.query(`SELECT * FROM items`)
     .then(data => {
       console.log(data.rows[0])
-      console.log("result from users")
+      console.log("result from items")
     }
     )
     .catch(error => console.log(error.message));
