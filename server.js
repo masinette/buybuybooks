@@ -22,7 +22,9 @@ app.use(
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
-db.connect();
+console.log("connecting to db");
+db.connect().then(()=> console.log("connected to db"))
+  .catch((error) => console.log(error.message));
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -46,19 +48,19 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
-const favourites = require("./routes/favourites");
-const messages = require("./routes/messages");
-const sales = require("./routes/sales");
+const favouritesRoutes = require("./routes/favourites");
+const messagesRoutes = require("./routes/messages");
+const salesRoutes = require("./routes/sales");
 const myAds = require("./routes/myads");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-// app.use(favourites);
-// app.use(messages);
-app.use(myAds);
-// app.use(sales);
+app.use("/favourites", favouritesRoutes(db));
+app.use("/messages", messagesRoutes(db));
+app.use("/myads", myAds(db));
+app.use("/sales", salesRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -66,9 +68,18 @@ app.use(myAds);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
+  console.log("getting items");
+  db.query(`SELECT * FROM items`)
+    .then(data => {
+      console.log(data.rows[0])
+      console.log("result from items")
+    }
+    )
+    .catch(error => console.log(error.message));
   res.render("index");
 });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+

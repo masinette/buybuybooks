@@ -32,13 +32,15 @@ module.exports = (db) => {
     res.redirect("/");
   });
   router.get("/login", (req, res) => {
-    const user_id = req.session;
-    // const templateVars = { user: users[user_id] };, templateVars)
+    // const userId = req.session;
+    // const templateVars = { user: users[userId] };, templateVars)
     res.render("user_login");
     res.redirect(`/`);
     // // const templateVars = { user: users[user_id] };, templateVars)
     // res.render("user_login");
   });
+
+
   //logout POST route, redirect to main page
   router.post("/login", (req, res) => {
     let user = req.body.username;
@@ -52,7 +54,7 @@ module.exports = (db) => {
         if (results.rows.length > 0) {
           res.redirect("/");
         } else {
-          res.redirect("/login");
+          res.end("Error");
         }
       })
       .catch((err) => {
