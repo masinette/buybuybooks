@@ -17,6 +17,8 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     <title>Home Page</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -28,28 +30,7 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <style>
-      .featureItem {
-        height: 175px;
-        width: 175px;
-        margin: 20px 20px;
-        text-align: center;
-        background-color: blue;
-      }
-      .saleItem {
-        list-style: none;
-        height: 350px;
-        width: 350px;
-        margin: 20px 20px;
-        text-align: center;
-        background-color: green;
-      }
 
-      .row {
-        display: flex;
-        flex-wrap: wrap;
-      }
-    </style>
 
     <script>
       $(document).ready(function(){
@@ -73,10 +54,10 @@
 
       <!-- feature display area, use jQuery to show random list element in div, and render to page -->
       <h4 style="margin-top: 50px;">Features</h4>
-      <div class="horizontal-scroll-wrapper squares">
+      <div class="horizontal-scroll-wrapper">
         <% for (item of items) { %>
         <div class="featureItem">
-          <img src= "<%= item.image_url %>"
+          <img src= "<%= item.image_url %>" class="items"
           height="50px"; width="50px"; alt="<%= item.name %>"/>          <div>
             <!-- <p><%= item.name %></p>
             <p> $<%= item.price / 100 %></span></p> -->
@@ -105,7 +86,7 @@
       </div>
 
       <!-- main item display area, use div class 'saleItem' in jQuery to prepend items to list and be rendered in main area-->
-      <div id="tweet-container">
+      <div class="sale-item">
         <% for (item of items) { %>
           <article class="saleItem">
             <div>
