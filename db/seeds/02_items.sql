@@ -21,9 +21,9 @@ VALUES('bicycle', false, 11111, '10 speed schwinn bicycle', 1, 1, 3, 'shorturl.a
       ('Skateboard', false, 2200, 'Skateboard barely used. Price non-negotiable', 5, 1, 3, 'shorturl.at/dCELZ'),
       ('Levis jeans', false, 4522, 'Minor wear, still in good condition. Only worn twice.', 2, 2, 1, 'shorturl.at/oNTVZ'),
       ('Hammer', false, 1500, '16 oz Claw Hammer is used to easily hammer and remove nails and features a wood handle for a comfortable grip.', 10, 2, 1, 'shorturl.at/pINV7'),
-      ('Artificial Potted Plant', false, 1109, 'Artificial potted plant, indoor/outdoor monstera7 ½ " (19 cm)', 6, 2, 1, 'shorturl.at/awAW5'),
-      ('Ocean Spider Plant', false, 2300, 'Ocean (Blue) Spider Plant - Easy to Grow - Cleans the Air - NEW - 3.5', 6, 2, 1, 'shorturl.at/arzG4')
-      ('Artificial Potted Plant', false, 1109, 'Artificial potted plant, indoor/outdoor monstera7 ½ " (19 cm)', 6, 2, 1, 'shorturl.at/awAW5'),
+      ('Artificial Potted Plant', false, 1109, 'Artificial potted plant, indoor and outdoor monstera 19 cm', 6, 2, 1, 'shorturl.at/awAW5'),
+      ('Ocean Spider Plant', false, 2300, 'Ocean Blue Spider Plant - Easy to Grow - Cleans the Air - NEW - 3.5', 6, 2, 1, 'shorturl.at/arzG4'),
+      ('Artificial Potted Plant', false, 1109, 'Indoor and outdoor monstera 19 cm', 6, 2, 1, 'shorturl.at/awAW5'),
       ('Microwave', false, 3409, 'This Oster 1.1 cu. ft. Microwave Oven offers one-touch operation and 10 power levels to meet a variety of cooking needs.', 3, 2, 1, 'shorturl.at/hnDW6'),
       ('Food Processor', false, 9009, 'Great condition. Makes food prep much easier and has different features. Price negotiable.', 3, 2, 1, 'shorturl.at/dAFR4'),
       ('Electric Bike', false, 2345, '7-Speed Bike great for riding uphill and in the city.', 1, 2, 1, 'shorturl.at/dAFR4'),
