@@ -73,83 +73,25 @@
 
           <ul>
             <!-- for the user image -->
-            <li class = "soldWrapper">
-              <div class="soldItem">
-                <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px";width="100px";alt="sterling archer"/>
-              </div>
-
-              <div class = "soldInfo">
-                <p class = "item">Secret Agent</p>
-                <p>message...example</p>
-                <p class = "buyer">Buyer</p>
-              </div>
-            </li>
+            <% for (item of items) { %>
 
             <li class = "soldWrapper">
               <div class="soldItem">
-                <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px";width="100px";alt="sterling archer"/>
+                <div style="height: 100px; width: 100px; background-color: blue; margin-top: 10px;">
+                  <img src= "<%= item.image_url %>" style="height: 100px; width: 100px;"
+                  height="250px"; width="250px"; alt="<%= item.name %>"/>
+                </div>
               </div>
 
               <div class = "soldInfo">
-                <p class = "item">Secret Agent</p>
-                <p>message...example</p>
-                <p class = "buyer">Buyer</p>
+                <p class = "item"><%= item.description %></p>
+                <p><%= item.message %></p>
+                <p class = "buyer"><%= item.name %></p>
               </div>
             </li>
+            <% } %>
 
-            <li class = "soldWrapper">
-              <div class="soldItem">
-                <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px";width="100px";alt="sterling archer"/>
-              </div>
 
-              <div class = "soldInfo">
-                <p class = "item">Secret Agent</p>
-                <p>message...example</p>
-                <p class = "buyer">Buyer</p>
-              </div>
-            </li>
-
-            <li class = "soldWrapper">
-              <div class="soldItem">
-                <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px";width="100px";alt="sterling archer"/>
-              </div>
-
-              <div class = "soldInfo">
-                <p class = "item">Secret Agent</p>
-                <p>message...example</p>
-                <p class = "buyer">Buyer</p>
-              </div>
-            </li>
-
-            <li class = "soldWrapper">
-              <div class="soldItem">
-                <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px";width="100px";alt="sterling archer"/>
-              </div>
-
-              <div class = "soldInfo">
-                <p class = "item">Secret Agent</p>
-                <p>message...example</p>
-                <p class = "buyer">Buyer</p>
-              </div>
-            </li>
-
-            <li class = "soldWrapper">
-              <div class="soldItem">
-                <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png" height="100px";width="100px";alt="sterling archer"/>
-              </div>
-
-              <div class = "soldInfo">
-                <p class = "item">Secret Agent</p>
-                <p>message...example</p>
-                <p class = "buyer">Buyer</p>
-              </div>
-            </li>
         </ul>
 
 
