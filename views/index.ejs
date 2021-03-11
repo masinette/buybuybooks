@@ -19,74 +19,9 @@
     <link rel="stylesheet" href="./css/nav.css" type="text/css" />
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<<<<<<< HEAD
-    <style type="text/css">
-      div {
-        box-sizing:border-box;
-      }
-      .horizontal-scroll-wrapper{
-        /* position:absolute; */
-        display:block;
-        top:0;
-        left:0;
-        width:80px;
-        max-height:500px;
-        margin:0;
-        background: white;
-        overflow-y:auto;
-        overflow-x:hidden;
-        transform:rotate(-90deg) translateY(-80px);
-        transform-origin:right top;
-      }
-      .horizontal-scroll-wrapper > div{
-        display:block;
-        padding:5px;
-        background:#cab;
-        transform:rotate(90deg);
-        transform-origin: right top;
-      }
-
-      .squares{
-        padding:60px 0 0 0;
-      }
-
-      .squares > div{
-        width:60px;
-        height:60px;
-        margin:10px;
-      }
-      /* .features-div {
-        box-sizing: border-box;
-        display: flex;
-        background-color: white;
-        width: 100%;
-        height: 175px;
-      } */
-      /* .features-div .row {
-        width: 175px;
-        height: 600px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        transform: rotate(-90deg);
-        transform-origin: top right;
-        transform:rotate(-90deg) translateY(-175px);
-        /* box-sizing: border-box;
-        overflow: auto;
-        flex-direction: row; */
-      /* }
-      .features-div .row > .featureItem {
-        width: 175px;
-        height: 175px;
-        transform: rotate(90deg);
-        transform-origin: top right;
-        /* box-sizing: border-box;
-        overflow: auto;
-        flex-direction: row; */
-      /* } */
-=======
     <style>
->>>>>>> 998b497a44645e5ec4220279e3fa817731b17e62
       .featureItem {
         height: 175px;
         width: 175px;
@@ -108,6 +43,19 @@
         flex-wrap: wrap;
       }
     </style>
+
+    <script>
+      $(document).ready(function(){
+        $("#price").hide()
+        $("#toggle_filter").click(function(){
+          $("#price").toggle();
+          $("#options").hide();
+        });
+        $("#price").click(function(){
+          $("#options").toggle();
+        });
+      });
+    </script>
   </head>
 
   <body>
@@ -120,7 +68,6 @@
       <h4 style="margin-top: 50px;">Features</h4>
       <div class="horizontal-scroll-wrapper squares">
         <% for (item of items) { %>
-
         <div class="featureItem">
           <img src= "<%= item.image_url %>"
           height="50px"; width="50px"; alt="<%= item.name %>"/>          <div>
@@ -153,12 +100,10 @@
 <% for (item of items) { %>
           <article class="saleItem">
             <div>
-
               <!-- <a href="/messages"> -->
               <img src= "<%= item.image_url %>"
                 height="250px"; width="250px"; alt="<%= item.name %>"/>
               <!-- </a> -->
-
               <div class="itemInfo">
                 <p><%= item.name %></p>
                 <p> $<%= item.price / 100 %></span></p>

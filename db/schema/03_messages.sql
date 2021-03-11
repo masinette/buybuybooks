@@ -9,5 +9,3 @@ CREATE TABLE messages (
   item_id INTEGER REFERENCES items(id) ON DELETE CASCADE NOT NULL,
   date_of_message TIMESTAMP
 );
-
-

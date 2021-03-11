@@ -34,18 +34,18 @@ module.exports = (db) => {
     // const userId = req.session.current_user_id;
     const userId = 3;
     console.log(req.session);
-    const sql = `INSERT INTO favourites (user_id, item_id) VALUES ($1, $2) RETURNING *;`
+    const sql = `INSERT INTO favourites (user_id, item_id) VALUES ($1, $2) RETURNING *;`;
 
 
 
-    console.log("Hello")
+    console.log("Hello");
     db.query(sql, [userId, itemId])
       .then(data => {
         const dataBody = data.rows;
-        console.log("DATA", dataBody)
+        console.log("DATA", dataBody);
 
         console.log("UserId ", dataBody[0].user_id);
-        res.redirect("/")
+        res.redirect("/");
       })
       .catch(err => {
         res.status(!200).json({ error: err.message });

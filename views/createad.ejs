@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="./css/header.css" type="text/css" />
+    <link rel="stylesheet" href="./css/nav.css" type="text/css" />
+    <link rel="stylesheet" href="./css/myads.css" type="text/css" />
+    <title>Post Ad</title>
+</head>
+<body style="margin: 1em;">
+  <%- include('partials/_headers.ejs') %>
+  <% if(current_user_id) { %>
+  <div style="padding-top: 125px;">
+    <h3>Post Ad</h3>
+      <form class="form-inline" action="/createad" method="POST">
+        <div class="form-group mb-2" style="flex-direction: column; align-items: flex-start; font-weight: bold;">
+          <div class="error-message">
+            <!-- filled in with error message see client.js -->
+        </div>
+          <div class="input">
+            <label for="title">Enter Title:</label>
+            <input class="form-control" type="text" name="title" placeholder="bicycle" style="width: 300px; margin: 1em"></input>
+
+            <label for="image-url">Enter Img Url:</label>
+            <input class="form-control" type="text" name="image-url" placeholder="https://cdn.shopify.com/s/files/1/1245/1481/products/600_HERO_WEB_FIRST_1024x1024.jpg?v=1597712912" style="width: 300px; margin: 1em"></input>
+
+            <label for="item-price">Enter Price:</label>
+            <input class="form-control" type="text" name="item-price" placeholder="600" style="width: 300px; margin: 1em"></input>
+
+            <label for="item-description">Enter Description:</label>
+            <textarea class="form-control" type="text" name="item-description" placeholder="10 speed schwinn bicycle" style="width: 300px; margin: 1em"></textarea>
+
+            <label for="item-category">Enter Category:</label>
+            <input class="form-control" type="text" name="item-category" placeholder="Bikes" style="width: 300px; margin: 1em"></input>
+          </div>
+
+          <div class="button-container">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <% } else{ %>
+    <% } %>
+  </body>
+</html>
