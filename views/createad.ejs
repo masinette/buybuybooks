@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Create an Ad</title>
+    <meta charset="UTF-8" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+
+  </head>
+
+  <body>
+<%- include('partials/_header') %>
+    <h1 style="padding-top: 130px; display: flex; justify-content: center;">Post an Ad</h1>
+    <div class="post-ad-page">
+      <div id="postad-form">
+        <form method="POST" action="/createad">
+          <label>Title:</label>
+          <input type="text" name="name" id="nav-input" style="width: 350px;"></input><p style="line-height: 0.1em;">&nbsp;</p>
+          <p style="line-height: 0.1em;">&nbsp;</p>
+          <label>&nbsp;Category:</label>
+          <select id = "categories-dropdown" placeholder="categories" name="categories" style="width: 305px;">
+            <option value="" disabled selected>Categories</option>
+            <option value = "1">Bikes</option>
+            <option value = "2">Clothes</option>
+            <option value = "3">Appliances</option>
+            <option value = "4">Battery</option>
+            <option value = "5">Skateboards</option>
+            <option value = "6">Plants</option>
+            <option value = "7">Electronics</option>
+            <option value = "8">Toys</option>
+            <option value = "9">Misc</option>
+            <option value = "10">Tools</option>
+          </select>
+          <p style="line-height: 0.1em;">&nbsp;</p>
+          <label>Price:</label>
+          <input type="number" name="price" id="nav-input" style="width: 350px"></input>
+          <p style="line-height: 0.1em;">&nbsp;</p>
+          <label>Description:</label>
+          <input type="text" name="description" id="nav-input" style="width: 290px;"></input>
+          <p style="line-height: 0.1em;">&nbsp;</p>
+          <label>Image URL:</label>
+          <input type="text" name="image" id="nav-input"></input>
+          <button type="submit" value="submit" id="post-ad-submit">Submit</button>
+        </form>
+      </div>
+      </div>
+    </body>
+  </html>

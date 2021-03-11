@@ -37,22 +37,26 @@ module.exports = (db) => {
   return router;
 };
 
-
 module.exports = (db) => {
   // need to add messages and conversation_id to ERD
   router.get("/", (req, res) => {
     const sql = `SELECT * FROM items`;
 
-    return db.query(sql)
+    return db
+      .query(sql)
 
-      .then(data => {
+      .then((data) => {
         const templateVars = { items: data.rows };
         return res.render("myads", templateVars);
-
       })
-      .catch(error => console.log(error));
-
+      .catch((error) => console.log(error));
   });
   return router;
 };
 
+module.exports = (db) => {
+  router.get("/postad", (req, res) => {
+    res.render("postad");
+  });
+  return router;
+};
