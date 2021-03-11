@@ -31,15 +31,21 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     console.log(req.body);
     const itemId = req.body.item_id;
-    // const userId = req.session.user_id;
-    const userId = 1;
-    // console.log("ItemID: ", itemId);
-    // console.log("UserId ", userId);
-    const sql = `INSERT INTO favourites (user_id, item_id) VALUES ($1, $2) RETURNING *;`
+    // const userId = req.session.current_user_id;
+    const userId = 3;
+    console.log(req.session);
+    const sql = `INSERT INTO favourites (user_id, item_id) VALUES ($1, $2) RETURNING *;`;
+
+
+
+    console.log("Hello");
     db.query(sql, [userId, itemId])
       .then(data => {
-        // console.log("Hello")
-        res.redirect("/")
+        const dataBody = data.rows;
+        console.log("DATA", dataBody);
+
+        console.log("UserId ", dataBody[0].user_id);
+        res.redirect("/");
       })
       .catch(err => {
         res.status(!200).json({ error: err.message });

@@ -17,11 +17,11 @@ module.exports = (db) => {
 
       .then(data => {
         const user = req.session.user_id;
-        if(user) {
+        if (user) {
           const templateVars = { items: data.rows, current_user_id: user };
           res.render("createad", templateVars);
         } else {
-          res.redirect("/api/users/login")
+          res.redirect("/api/users/login");
         }
       })
       .catch(error => console.log(error));

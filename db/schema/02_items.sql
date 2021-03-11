@@ -12,5 +12,3 @@ CREATE TABLE items (
   created_at TIMESTAMP,
   buyer_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL
 );
-
-

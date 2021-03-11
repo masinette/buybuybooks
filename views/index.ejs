@@ -72,105 +72,18 @@
       <h1>BUYBUYSELL</h1>
 
       <!-- feature display area, use jQuery to show random list element in div, and render to page -->
-      <div style="overflow: scroll; width: 100%;">
-        <ul class="row" style="list-style: none; overflow: hidden; width: 3000px;">
-          <li class="featureItem">
-            <div>
-              <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png"
-                height="100px"
-                ;
-                width="100px"
-                ;
-                alt="sterling archer"
-              />
-              <div class="itemInfo">
-                <p>Namey Namerton</p>
-                <p>$100</p>
-              </div>
-            </div>
-          </li>
-          <li class="featureItem">
-            <div>
-              <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png"
-                height="100px"
-                ;
-                width="100px"
-                ;
-                alt="sterling archer"
-              />
-              <div class="itemInfo">
-                <p>Namey Namerton</p>
-                <p>$100</p>
-              </div>
-            </div>
-          </li>
-          <li class="featureItem">
-            <div>
-              <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png"
-                height="100px"
-                ;
-                width="100px"
-                ;
-                alt="sterling archer"
-              />
-              <div class="itemInfo">
-                <p>Namey Namerton</p>
-                <p>$100</p>
-              </div>
-            </div>
-          </li>
-          <li class="featureItem">
-            <div>
-              <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png"
-                height="100px"
-                ;
-                width="100px"
-                ;
-                alt="sterling archer"
-              />
-              <div class="itemInfo">
-                <p>Namey Namerton</p>
-                <p>$100</p>
-              </div>
-            </div>
-          </li>
-          <li class="featureItem">
-            <div>
-              <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png"
-                height="100px"
-                ;
-                width="100px"
-                ;
-                alt="sterling archer"
-              />
-              <div class="itemInfo">
-                <p>Namey Namerton</p>
-                <p>$100</p>
-              </div>
-            </div>
-          </li>
-          <li class="featureItem">
-            <div>
-              <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png"
-                height="100px"
-                ;
-                width="100px"
-                ;
-                alt="sterling archer"
-              />
-              <div class="itemInfo">
-                <p>Namey Namerton</p>
-                <p>$100</p>
-              </div>
-            </div>
-          </li>
-        </ul>
+      <h4 style="margin-top: 50px;">Features</h4>
+      <div class="horizontal-scroll-wrapper squares">
+        <% for (item of items) { %>
+        <div class="featureItem">
+          <img src= "<%= item.image_url %>"
+          height="50px"; width="50px"; alt="<%= item.name %>"/>          <div>
+            <!-- <p><%= item.name %></p>
+            <p> $<%= item.price / 100 %></span></p> -->
+          </div>
+        </div>
+        <% } %>
+
       </div>
 
       <!-- Filter button always visible, click to toggle filter option buttons -->
@@ -193,58 +106,25 @@
 
       <!-- main item display area, use div class 'saleItem' in jQuery to prepend items to list and be rendered in main area-->
       <div id="tweet-container">
-        <ul class="row">
-          <li class="saleItem">
+        <% for (item of items) { %>
+          <article class="saleItem">
             <div>
-              <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png"
-                height="250px"
-                ;
-                width="250px"
-                ;
-                alt="sterling archer"
-              />
+              <!-- <a href="/messages"> -->
+              <img src= "<%= item.image_url %>"
+                height="250px"; width="250px"; alt="<%= item.name %>"/>
+              <!-- </a> -->
               <div class="itemInfo">
-                <p>Namey Namerton</p>
-                <p>$100<span>&#x2665;</span></p>
+                <p><%= item.name %></p>
+                <p> $<%= item.price / 100 %></span></p>
+                <!-- <p style="padding-left: 10px;"><%= item.id %></p> -->
+                <form action="/favourites" method = "post">
+                  <input type="hidden" value= "<%= item.id %>" name = "item_id">
+                  <button type = "submit">&#x2665;</button>
+                </form>
               </div>
             </div>
-          </li>
-
-          <li class="saleItem">
-            <div>
-              <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png"
-                height="250px"
-                ;
-                width="250px"
-                ;
-                alt="sterling archer"
-              />
-              <div class="itemInfo">
-                <p>Namey Namerton</p>
-                <p>$100<span>&#x2665;</span></p>
-              </div>
-            </div>
-          </li>
-
-          <li class="saleItem">
-            <div>
-              <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png"
-                height="250px"
-                ;
-                width="250px"
-                ;
-                alt="sterling archer"
-              />
-              <div class="itemInfo">
-                <p>Namey Namerton</p>
-                <p>$100<span>&#x2665;</span></p>
-              </div>
-            </div>
-          </li>
-        </ul>
+          </article>
+<% } %>
       </div>
     </div>
   </body>

@@ -54,7 +54,6 @@ const salesRoutes = require("./routes/sales");
 const myAds = require("./routes/myads");
 const createad = require("./routes/createad");
 
-
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
@@ -74,9 +73,9 @@ app.get("/", (req, res) => {
   console.log("getting items");
   db.query(`SELECT * FROM items;`)
     .then(data => {
-      
+
       // data = req.body;
-      // console.log("DATA", data)
+      // console.log("DATA", data.rows)
       const templateVars = { items: data.rows, current_user_id: req.session.user_id };
       console.log("req session", req.session.user_id)
       console.log("data row info", data.rows)

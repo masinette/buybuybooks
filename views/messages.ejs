@@ -36,6 +36,9 @@
       <div style="display: flex; flex-direction: row;"></div>
 
 
+      <p>
+      </p>
+
 <% for (item of messages) { %>
       <div class="favourites" style="padding-left: 10px; background-color: #F0F0F0;">
         <!-- class sales-out-box has white outter background box -->
@@ -50,10 +53,19 @@
         </article>
       </div>
 <% } %>
-<form method="POST" action="/messages>" id="message-buyer-seller">
-  <input type="text" name="message" id="message-input"></input>
-  <button type="submit" value="submit" id="send-message">Send</button>
-</form>
+
+
+<ul>CONTACT SELLER:</ul>
+  <li>
+    <form method="POST" action="/messages>" id="message-buyer-seller">
+    <input type="text" name="message" id="message-input"></input>
+      <button type="submit" value="submit" id="send-message">Send</button>
+    </form>
+
+  </li>
+
+  <li><a href = "mailto: abc@example.com">Send Email</a></li>
+  <li><a href="sms: 4169671111">Send a SMS</a></li>
 
 
 
