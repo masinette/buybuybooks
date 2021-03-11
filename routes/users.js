@@ -41,7 +41,6 @@ module.exports = (db) => {
     // res.render("user_login");
   });
 
-
   //logout POST route, redirect to main page
   router.post("/login", (req, res) => {
     const user = req.body.username;
@@ -56,7 +55,7 @@ module.exports = (db) => {
           req.session.user_id = user;
           res.redirect("/");
         } else {
-          res.end('User Does Not Exist.');
+          res.end("User Does Not Exist.");
           return;
         }
       })

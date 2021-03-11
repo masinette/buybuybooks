@@ -53,8 +53,9 @@ module.exports = (db) => {
 
   router.post("/:id/delete", (req, res) => {
     const itemId = req.params.id;
+    const userId = req.session.user_id;
     const sql = `DELETE FROM favourites WHERE item_id = $1;`;
-    console.log("this is item", itemId);
+
     return db
       .query(sql, [itemId])
       .then(() => {
