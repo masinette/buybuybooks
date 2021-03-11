@@ -153,8 +153,12 @@
 <% for (item of items) { %>
           <article class="saleItem">
             <div>
+
+              <!-- <a href="/messages"> -->
               <img src= "<%= item.image_url %>"
                 height="250px"; width="250px"; alt="<%= item.name %>"/>
+              <!-- </a> -->
+
               <div class="itemInfo">
                 <p><%= item.name %></p>
                 <p> $<%= item.price / 100 %></span></p>

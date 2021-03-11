@@ -72,7 +72,7 @@ app.get("/", (req, res) => {
   db.query(`SELECT * FROM items;`)
     .then(data => {
       // data = req.body;
-      // console.log("DATA", data)
+      // console.log("DATA", data.rows)
       const templateVars = { items: data.rows, current_user_id: req.session.user_id };
 
       res.render("index", templateVars);
