@@ -45,19 +45,27 @@
             <td>$<%= item.price / 100 %></td>
 
             <td>
-              <form action="/myads/delete%>">
-                <button class="btn btn-outline-primary">Delete</button>
+              <% if(!item.sold) { %>
+              <form action="/myads/<%= item.id %>/delete" method="POST">
+                <button class="btn btn-outline-primary" type="submit">Delete</button>
               </form>
+              <% } %>
             </td>
             <td>
+              <% if(!item.sold) { %>
               <form action="/myads/edit%>">
                 <button class="btn btn-outline-primary">Edit</button>
               </form>
+              <% } %>
             </td>
             <td>
-              <form action="/myads/post%>">
-                <button class="btn btn-outline-primary">Post</button>
+              <% if(!item.sold) { %>
+              <form action="/myads/<%= item.id %>/sold" method="POST">
+                <button class="btn btn-outline-primary">Sold</button>
               </form>
+              <% } else { %>
+              <p>SOLD!!</p>
+              <% } %>
             </td>
           </tr>
           <% } %>

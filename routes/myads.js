@@ -33,5 +33,37 @@ module.exports = (db) => {
       })
       .catch((error) => console.log(error));
   });
+
+  router.post("/:id/delete", (req, res) => {
+    const itemId = req.params.id;
+    const sql = `DELETE FROM items WHERE id = $1;`;
+    console.log("this is item", itemId);
+    return db
+      .query(sql, [itemId])
+      .then(() => {
+        console.log("query sql", sql)
+        res.redirect("/myads");
+      })
+      .catch((err) => {
+        console.log("error", err);
+        res.status(302).json({ error: err.message });
+      });
+  });
+
+  router.post("/:id/sold", (req, res) => {
+    const itemId = req.params.id;
+    const sql = `UPDATE items SET sold = true WHERE id = $1;`;
+    console.log("this is item", itemId);
+    return db
+      .query(sql, [itemId])
+      .then(() => {
+        console.log("query sql", sql)
+        res.redirect("/myads");
+      })
+      .catch((err) => {
+        console.log("error", err);
+        res.status(302).json({ error: err.message });
+      });
+  });
   return router;
 };
