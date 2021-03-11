@@ -18,8 +18,9 @@ module.exports = (db) => {
 
     db.query(sqlQuery)
       .then(data => {
-        const templateVars = { favourites:data.rows };
-        // console.log(templateVars);
+        const templateVars = { favourites: data.rows, current_user_id: req.session.user_id };
+        // const templateVars = { favourites:data.rows };
+        // console.log("FAVOURITES", templateVars);
         res.render("favourites", templateVars);
       })
       .catch(err => {

@@ -69,13 +69,19 @@ app.use("/sales", salesRoutes(db));
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   console.log("getting items");
-  db.query(`SELECT * FROM items`)
+  db.query(`SELECT * FROM items;`)
     .then(data => {
-      const templateVars = { items: data.rows };
+      // data = req.body;
+      // console.log("DATA", data)
+      const templateVars = { items: data.rows, current_user_id: req.session.user_id };
+
       res.render("index", templateVars);
     })
+
+
     .catch(error => console.log(error.message));
 });
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
