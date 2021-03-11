@@ -22,20 +22,20 @@
 
 <body style="margin-top: 10%;">
   <%- include('partials/_headers.ejs') %>
+  <p>FAVOURITES</p>
+  <ul class = "favsList">
 <!-- user option bar, includes; my ads, my favourites, my messages
     If you are on any of these pages, the option disappears. Example; if you're on my favs, the bar will only include my ads and my messages -->
       <!-- class fav-out-box, the background has a white box -->
-    <div style="background-color: #CCCCFF;">
-      <div class="fav-out-box" style="display: flex; justify-content: center;">
+      <div class="fav-out-box">
         <!-- class row, aligns everything in row, id row is the class that is responsible of making things appear and disappear-->
-        <div class="row" id="row" style="display: flex; background-color: white; height: 75px; align-items: center; justify-content: space-between; width: 98%; margin-top: 1em;">
-          <div style="margin-left: 2em;">&nbsp;Img&nbsp;</div>
-          <div>&nbsp;Title&nbsp;</div>
-          <div>&nbsp;Price&nbsp;</div>
-          <div>&nbsp;Posted&nbsp;</div>
-          <div style="margin-right: 1em;">&nbsp;Options&nbsp;</div>
+        <div class="row" id="row">
+          <a href="#">&nbsp;MY ADS&nbsp;</a>
+          <a href="#">&nbsp;MY FAVOURITES&nbsp;</a>
+          <a href="#">&nbsp;MY MESSAGES&nbsp;</a>
         </div>
       </div>
+      <div style="display: flex; flex-direction: row;">
       <!-- class favourites, responsible for scroll -->
       <!-- <div class="favourites" style="padding-left: 10px;">
         <article class="sales-out-box">
@@ -50,29 +50,32 @@
           <button class="delete-button" style="background-color:blue; color:white;">DELETE</button>
         </div>
       </div> -->
-      <div style="background-color: white; height: 100%; margin-top: 1em; width: 98%; flex-direction: column; justify-content: center;">
+
       <% for (item of favourites) { %>
-        <div class="favourites" style="padding-left: 10px;">
+        <div class="favourites" style="padding-left: 10px; background-color: #F0F0F0;">
           <!-- class sales-out-box has white outter background box -->
-          <article class="sales-out-box" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+          <article class="sales-out-box" style="display: flex; flex-direction: row;">
             <!-- for the user image -->
             <div style="height: 100px; width: 100px; background-color: blue; margin-top: 10px;">
               <img src= "<%= item.image_url %>" style="height: 100px; width: 100px;"
               height="250px"; width="250px"; alt="<%= item.name %>"/>
             </div>
-            <div style="display: flex; margin-left: 90px; flex-direction: row; justify-content: space-between; width: 100%;">
-              <p style="font-size: 20px;"><%= item.name %></p>
-            <p style="font-size: 20px; color: #37a864;"> $<%= item.price / 100 %></span></p>
+            <p><%= item.name %></p>
+            <p> $<%= item.price / 100 %></span></p>
             <!-- class heart-bottom-right, aligns the heart to bottom right-->
-            <p class="heart-bottom-right">💙</p>
+            <p>💙</p>
+            <div style="flex-direction: column;">
             </div>
 
           </article>
         </div>
   <% } %>
-      </div>
+
+
     </div>
-  </body>
+
+  </ul>
+</body>
 </html>
 
 
