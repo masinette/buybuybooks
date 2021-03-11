@@ -10,5 +10,5 @@ CREATE TABLE items (
   description TEXT NOT NULL,
   category INTEGER,
   created_at TIMESTAMP,
-  buyer_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL
+  buyer_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
