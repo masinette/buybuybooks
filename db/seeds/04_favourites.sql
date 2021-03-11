@@ -1,7 +1,7 @@
-INSERT INTO favourites (user_id, item_id, date_of_fav, favourite)
-VALUES(1, 5, CURRENT_TIMESTAMP, false),
-      (2, 4, CURRENT_TIMESTAMP, false),
-      (3, 3, CURRENT_TIMESTAMP, false);
+INSERT INTO favourites (user_id, item_id, date_of_fav)
+VALUES(1, 5, CURRENT_TIMESTAMP),
+      (2, 4, CURRENT_TIMESTAMP),
+      (3, 3, CURRENT_TIMESTAMP);
 
 
 
