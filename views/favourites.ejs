@@ -32,7 +32,7 @@
           <div style="margin-left: 2em;">&nbsp;Img&nbsp;</div>
           <div>&nbsp;Title&nbsp;</div>
           <div>&nbsp;Price&nbsp;</div>
-          <div>&nbsp;Posted&nbsp;</div>
+          <div>&nbsp;Delete&nbsp;</div>
           <div style="margin-right: 1em;">&nbsp;Options&nbsp;</div>
         </div>
       </div>
@@ -46,9 +46,7 @@
           <p>$100</p>
           <p class="heart-bottom-right">💙</p>
         </article>
-        <div>
-          <button class="delete-button" style="background-color:blue; color:white;">DELETE</button>
-        </div>
+
       </div> -->
       <div style="background-color: white; height: 100%; margin-top: 1em; width: 98%; flex-direction: column; justify-content: center;">
       <% for (item of favourites) { %>
@@ -64,6 +62,11 @@
               <p style="font-size: 20px;"><%= item.name %></p>
             <p style="font-size: 20px; color: #37a864;"> $<%= item.price / 100 %></span></p>
             <!-- class heart-bottom-right, aligns the heart to bottom right-->
+            <form method="POST" action="/favourites/<%= item.id %>/delete">
+            <div>
+              <button class="delete-button" type="submit" style="background-color:blue; color:white;">DELETE</button>
+            </div>
+          </form>
             <p class="heart-bottom-right">💙</p>
             </div>
 

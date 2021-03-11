@@ -17,42 +17,53 @@ const router = express.Router();
 //   });
 
 module.exports = (db) => {
-  router.post("/createad", (req, res) => {
-    const name = req.body.name;
-    const category = req.body.category;
-    const price = req.body.price;
-    const image = req.body.image;
-    const description = req.body.description;
-    const user = req.body;
-
-    const sql = `INSERT INTO items (user_id, price, name, description, category_id, image_url) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`;
-    db.query(sql, [user, price, name, description, category, image])
-      .then((data) => {
-        res.redirect(`/myads`);
-      })
-      .catch((err) => {
-        res.status(!200).json({ error: err.message });
-      });
-  });
-  return router;
-};
-
-
-module.exports = (db) => {
   // need to add messages and conversation_id to ERD
   router.get("/", (req, res) => {
     const sql = `SELECT * FROM items`;
 
-    return db.query(sql)
+    return db
+      .query(sql)
 
-      .then(data => {
-        const templateVars = { items: data.rows, current_user_id: req.session.user_id };
+      .then((data) => {
+        const templateVars = {
+          items: data.rows,
+          current_user_id: req.session.user_id,
+        };
         return res.render("myads", templateVars);
-
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
+  });
 
+  router.post("/:id/delete", (req, res) => {
+    const itemId = req.params.id;
+    const sql = `DELETE FROM items WHERE id = $1;`;
+    console.log("this is item", itemId);
+    return db
+      .query(sql, [itemId])
+      .then(() => {
+        console.log("query sql", sql)
+        res.redirect("/myads");
+      })
+      .catch((err) => {
+        console.log("error", err);
+        res.status(302).json({ error: err.message });
+      });
+  });
+
+  router.post("/:id/sold", (req, res) => {
+    const itemId = req.params.id;
+    const sql = `UPDATE items SET sold = true WHERE id = $1;`;
+    console.log("this is item", itemId);
+    return db
+      .query(sql, [itemId])
+      .then(() => {
+        console.log("query sql", sql)
+        res.redirect("/myads");
+      })
+      .catch((err) => {
+        console.log("error", err);
+        res.status(302).json({ error: err.message });
+      });
   });
   return router;
 };
-

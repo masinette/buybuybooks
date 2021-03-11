@@ -17,13 +17,16 @@ module.exports = (db) => {
     const sqlQuery = `SELECT * FROM favourites JOIN items ON item_id = items.id WHERE favourites.id IN (SELECT favourites.id FROM favourites);`;
 
     db.query(sqlQuery)
-      .then(data => {
-        const templateVars = { favourites: data.rows, current_user_id: req.session.user_id };
+      .then((data) => {
+        const templateVars = {
+          favourites: data.rows,
+          current_user_id: req.session.user_id,
+        };
         // const templateVars = { favourites:data.rows };
         // console.log("FAVOURITES", templateVars);
         res.render("favourites", templateVars);
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(!200).json({ error: err.message });
       });
   });
@@ -35,35 +38,33 @@ module.exports = (db) => {
     const userId = 3;
     console.log(req.session);
     const sql = `INSERT INTO favourites (user_id, item_id) VALUES ($1, $2) RETURNING *;`;
-
-
-
-    console.log("Hello");
     db.query(sql, [userId, itemId])
-      .then(data => {
+      .then((data) => {
         const dataBody = data.rows;
         console.log("DATA", dataBody);
 
         console.log("UserId ", dataBody[0].user_id);
         res.redirect("/");
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(!200).json({ error: err.message });
       });
   });
-  /*
-    router.post("/delete", (req, res) => {
-      const itemId = req.body.itemId;
-      const userId = req.session.user_id;
-      const sql = `DELETE FROM favourites WHERE user_id = $1 AND item_id = $2 RETURNING *`
-      db.query(sql, [userId, itemId])
-      .then(data => {
-        res.redirect("/")
+
+  router.post("/:id/delete", (req, res) => {
+    const itemId = req.params.id;
+    const userId = req.session.user_id;
+    const sql = `DELETE FROM favourites WHERE item_id = $1;`;
+
+    return db
+      .query(sql, [itemId])
+      .then(() => {
+        res.redirect("/favourites");
       })
-      .catch(err => {
-        res.status(!200).json({error: errmessage});
-      })
-    })
-  */
+      .catch((err) => {
+        console.log("error", err);
+        res.status(302).json({ error: err.message });
+      });
+  });
   return router;
 };
