@@ -18,10 +18,7 @@ module.exports = (db) => {
 
     db.query(sqlQuery)
       .then((data) => {
-        const templateVars = {
-          favourites: data.rows,
-          current_user_id: req.session.user_id,
-        };
+        const templateVars = { favourites: data.rows };
         // const templateVars = { favourites:data.rows };
         // console.log("FAVOURITES", templateVars);
         res.render("favourites", templateVars);
@@ -34,8 +31,7 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     console.log(req.body);
     const itemId = req.body.item_id;
-    // const userId = req.session.current_user_id;
-    const userId = 3;
+    const userId = req.session.user_id;
     console.log(req.session);
     const sql = `INSERT INTO favourites (user_id, item_id) VALUES ($1, $2) RETURNING *;`;
     db.query(sql, [userId, itemId])

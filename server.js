@@ -53,7 +53,13 @@ const messagesRoutes = require("./routes/messages");
 const salesRoutes = require("./routes/sales");
 const myAds = require("./routes/myads");
 const createad = require("./routes/createad");
-
+app.use((req, res, next) => {
+  if (req.session) {
+    res.locals.current_user_id = req.session.user_id;
+    res.locals.current_username = req.session.username;
+  }
+  next()
+})
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
