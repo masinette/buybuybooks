@@ -10,18 +10,20 @@ const router = express.Router();
 const cookieSession = require("cookie-session");
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
-      .then((data) => {
-        const users = data.rows;
-        data = req.body;
-        res.render("index");
-        // res.json({ users });
-      })
-      .catch((err) => {
-        res.status(500).json({ error: err.message });
-      });
-  });
+  // router.get("/", (req, res) => {
+  //   const sql = `SELECT * FROM items`;
+  //   return db.query(sql)
+
+  //     .then(data => {
+  //       const templateVars = { items:data.rows };
+  //       console.log("INDEX", templateVars);
+  //       res.render("index", templateVars);
+  //     })
+  //     .catch(err => {
+  //       res.status(!200).json({ error: err.message });
+  //     });
+
+  // });
 
   //LOGIN/LOGOUT ROUTES
   //login GET route, render login page with login buttons

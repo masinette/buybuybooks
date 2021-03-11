@@ -37,72 +37,47 @@
       </div>
       <div style="display: flex; flex-direction: row;">
       <!-- class favourites, responsible for scroll -->
-      <div class="favourites" style="padding-left: 10px;">
-        <!-- class sales-out-box has white outter background box -->
+      <!-- <div class="favourites" style="padding-left: 10px;">
         <article class="sales-out-box">
-          <!-- for the user image -->
           <div
             style="height: 100px; width: 100px; background-color: blue"
           ></div>
           <p>NAME</p>
           <p>$100</p>
-          <!-- class heart-bottom-right, aligns the heart to bottom right-->
           <p class="heart-bottom-right">💙</p>
         </article>
         <div>
           <button class="delete-button" style="background-color:blue; color:white;">DELETE</button>
         </div>
-      </div>
-      <div class="favourites" style="padding-left: 10px;">
-        <!-- class sales-out-box has white outter background box -->
-        <article class="sales-out-box">
-          <!-- for the user image -->
-          <div
-            style="height: 100px; width: 100px; background-color: blue"
-          ></div>
-          <p>NAME</p>
-          <p>$100</p>
-          <!-- class heart-bottom-right, aligns the heart to bottom right-->
-          <p class="heart-bottom-right">💙</p>
-        </article>
-        <div>
-          <button class="delete-button" style="background-color:blue; color:white;">DELETE</button>
+      </div> -->
+
+      <% for (item of favourites) { %>
+        <div class="favourites" style="padding-left: 10px; background-color: #F0F0F0;">
+          <!-- class sales-out-box has white outter background box -->
+          <article class="sales-out-box" style="display: flex; flex-direction: row;">
+            <!-- for the user image -->
+            <div style="height: 100px; width: 100px; background-color: blue; margin-top: 10px;">
+              <img src= "<%= item.image_url %>" style="height: 100px; width: 100px;"
+              height="250px"; width="250px"; alt="<%= item.name %>"/>
+            </div>
+            <p><%= item.name %></p>
+            <p> $<%= item.price / 100 %></span></p>
+            <!-- class heart-bottom-right, aligns the heart to bottom right-->
+            <p>💙</p>
+            <div style="flex-direction: column;">
+            </div>
+
+          </article>
         </div>
-      </div>
-      <div class="favourites" style="padding-left: 10px;">
-        <!-- class sales-out-box has white outter background box -->
-        <article class="sales-out-box">
-          <!-- for the user image -->
-          <div
-            style="height: 100px; width: 100px; background-color: blue"
-          ></div>
-          <p>NAME</p>
-          <p>$100</p>
-          <!-- class heart-bottom-right, aligns the heart to bottom right-->
-          <p class="heart-bottom-right">💙</p>
-        </article>
-        <div>
-          <button class="delete-button" style="background-color:blue; color:white;">DELETE</button>
-        </div>
-      </div>
-      <div class="favourites" style="padding-left: 10px;">
-        <!-- class sales-out-box has white outter background box -->
-        <article class="sales-out-box">
-          <!-- for the user image -->
-          <div
-            style="height: 100px; width: 100px; background-color: blue"
-          ></div>
-          <p>NAME</p>
-          <p>$100</p>
-          <!-- class heart-bottom-right, aligns the heart to bottom right-->
-          <p class="heart-bottom-right">💙</p>
-        </article>
-        <div>
-          <button class="delete-button" style="background-color:blue; color:white;">DELETE</button>
-        </div>
-      </div>
+  <% } %>
+
+
     </div>
 
   </ul>
 </body>
 </html>
+
+
+
+

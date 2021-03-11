@@ -15,9 +15,11 @@ const router = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     const sqlQuery = `SELECT * FROM favourites JOIN items ON item_id = items.id WHERE favourites.id IN (SELECT favourites.id FROM favourites);`;
+
     db.query(sqlQuery)
       .then(data => {
-        const templateVars = { items: data.rows };
+        const templateVars = { favourites:data.rows };
+        // console.log(templateVars);
         res.render("favourites", templateVars);
       })
       .catch(err => {
@@ -27,17 +29,19 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     console.log(req.body);
-    const itemId = req.body.item_Id;
-    const userId = req.session.user_id;
-    console.log("ItemID: ", itemId);
-    console.log("UserId ", userId);
-    const sql = `INSERT INTO favourites (userId, itemId) VALUES ($1, $2) RETURNING *;`
+    const itemId = req.body.item_id;
+    // const userId = req.session.user_id;
+    const userId = 1;
+    // console.log("ItemID: ", itemId);
+    // console.log("UserId ", userId);
+    const sql = `INSERT INTO favourites (user_id, item_id) VALUES ($1, $2) RETURNING *;`
     db.query(sql, [userId, itemId])
       .then(data => {
+        // console.log("Hello")
         res.redirect("/")
       })
       .catch(err => {
-        res.status(!200).jason({ error: err.message });
+        res.status(!200).json({ error: err.message });
       });
   });
   /*

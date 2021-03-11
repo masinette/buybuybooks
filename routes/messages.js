@@ -5,12 +5,14 @@ module.exports = (db) => {
   //MESSAGE ROUTES
   // need to add messages and conversation_id to ERD
   router.get("/", (req, res) => {
-    const sql = `SELECT * FROM messages`;
+    const sql = `SELECT * FROM messages
+    JOIN items ON items.id = item_id
+    `;
 
     return db.query(sql)
 
       .then(data => {
-        const templateVars = { messages:data.rows }
+        const templateVars = { messages: data.rows }
         return res.render("messages", templateVars);
 
       })
@@ -19,3 +21,6 @@ module.exports = (db) => {
   });
   return router;
 };
+
+
+

@@ -23,7 +23,7 @@ const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
 console.log("connecting to db");
-db.connect().then(()=> console.log("connected to db"))
+db.connect().then(() => console.log("connected to db"))
   .catch((error) => console.log(error.message));
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -71,12 +71,10 @@ app.get("/", (req, res) => {
   console.log("getting items");
   db.query(`SELECT * FROM items`)
     .then(data => {
-      console.log(data.rows[0])
-      console.log("result from items")
-    }
-    )
+      const templateVars = { items: data.rows };
+      res.render("index", templateVars);
+    })
     .catch(error => console.log(error.message));
-  res.render("index");
 });
 
 app.listen(PORT, () => {

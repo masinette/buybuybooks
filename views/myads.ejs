@@ -27,6 +27,7 @@
         <thead>
           <tr>
             <th scope="col">Title</th>
+            <th scope="col">Name</th>
             <th scope="col">Price</th>
             <th scope="col">Delete</th>
             <th scope="col">Edit</th>
@@ -34,18 +35,14 @@
           </tr>
         </thead>
         <tbody>
+          <% for (item of items) { %>
+
           <tr>
             <th scope="row">
-              <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png"
-                height="100px"
-                ;
-                width="100px"
-                ;
-                alt="sterling archer"
-              />
+              <img src= "<%= item.image_url %>" height="250px"; width="250px"; alt="<%= item.name %>"/>
             </th>
-            <td>$100.00</td>
+            <td><%= item.name %></td>
+            <td>$<%= item.price / 100 %></td>
 
             <td>
               <form action="/myads/delete%>">
@@ -63,62 +60,8 @@
               </form>
             </td>
           </tr>
-          <tr>
-            <th scope="row">
-              <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png"
-                height="100px"
-                ;
-                width="100px"
-                ;
-                alt="sterling archer"
-              />
-            </th>
-            <td>$100.00</td>
-            <td>
-              <form action="/myads/delete%>">
-                <button class="btn btn-outline-primary">Delete</button>
-              </form>
-            </td>
-            <td>
-              <form action="/myads/edit%>">
-                <button class="btn btn-outline-primary">Edit</button>
-              </form>
-            </td>
-            <td>
-              <form action="/myads/post%>">
-                <button class="btn btn-outline-primary">Post</button>
-              </form>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <img
-                src="https://pbs.twimg.com/profile_images/1305172587107037185/GIjEDu4a_400x400.png"
-                height="100px"
-                ;
-                width="100px"
-                ;
-                alt="sterling archer"
-              />
-            </th>
-            <td>$100.00</td>
-            <td>
-              <form action="/myads/delete%>">
-                <button class="btn btn-outline-primary">Delete</button>
-              </form>
-            </td>
-            <td>
-              <form action="/myads/edit%>">
-                <button class="btn btn-outline-primary">Edit</button>
-              </form>
-            </td>
-            <td>
-              <form action="/myads/post%>">
-                <button class="btn btn-outline-primary">Post</button>
-              </form>
-            </td>
-          </tr>
+          <% } %>
+
         </tbody>
       </table>
     </main>
