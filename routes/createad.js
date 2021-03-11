@@ -1,10 +1,3 @@
-/*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into api/users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
-
 const express = require("express");
 const router = express.Router();
 const cookieSession = require("cookie-session");
@@ -13,18 +6,37 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     const sql = `SELECT * FROM items`;
 
-    return db.query(sql)
+    return db
+      .query(sql)
 
-      .then(data => {
+      .then((data) => {
         const user = req.session.user_id;
         if (user) {
           const templateVars = { items: data.rows, current_user_id: user };
           res.render("createad", templateVars);
         } else {
-          res.redirect("/api/users/login");
+          res.redirect("/login");
         }
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
+  });
+
+  router.post("/", (req, res) => {
+    const name = req.body.name;
+    // const category = req.body.category;
+    const price = req.body.item_price;
+    const image = req.body.image_url;
+    const description = req.body.item_description;
+    const user = req.session.user_id;
+
+    const sql = `INSERT INTO items (creator_id, price, name, description, image_url) SELECT users.id, $2, $3, $4, $5 FROM users WHERE name = $1 RETURNING *;`;
+    db.query(sql, [user, price, name, description, image])
+      .then((data) => {
+        res.redirect(`/myads`);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
   });
   return router;
 };
