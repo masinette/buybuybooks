@@ -52,6 +52,8 @@ const favouritesRoutes = require("./routes/favourites");
 const messagesRoutes = require("./routes/messages");
 const salesRoutes = require("./routes/sales");
 const myAds = require("./routes/myads");
+const createad = require("./routes/createad");
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -61,6 +63,7 @@ app.use("/favourites", favouritesRoutes(db));
 app.use("/messages", messagesRoutes(db));
 app.use("/myads", myAds(db));
 app.use("/sales", salesRoutes(db));
+app.use("/createad", createad(db));
 
 // Note: mount other resources here, using the same pattern above
 
