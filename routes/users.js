@@ -28,7 +28,7 @@ module.exports = (db) => {
   //LOGIN/LOGOUT ROUTES
   //login GET route, render login page with login buttons
   router.get("/login/:id", (req, res) => {
-    console.log("id", req.params.id);
+    // console.log("id", req.params.id);
     req.session = req.params;
     res.redirect("/");
   });
@@ -45,13 +45,12 @@ module.exports = (db) => {
   //logout POST route, redirect to main page
   router.post("/login", (req, res) => {
     const user = req.body.username;
-    console.log("username", user);
+    // console.log("username", user);
     // req.session = user;
 
     const queryString = `SELECT * FROM users WHERE name = $1;`;
     db.query(queryString, [user])
       .then((results) => {
-        console.log("results", results.rows);
         if (results.rows.length > 0) {
           const user = req.body.username;
           req.session.user_id = user;

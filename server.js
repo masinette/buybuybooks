@@ -74,14 +74,14 @@ app.get("/", (req, res) => {
   console.log("getting items");
   db.query(`SELECT * FROM items;`)
     .then(data => {
+      
       // data = req.body;
       // console.log("DATA", data)
       const templateVars = { items: data.rows, current_user_id: req.session.user_id };
-
+      console.log("req session", req.session.user_id)
+      console.log("data row info", data.rows)
       res.render("index", templateVars);
     })
-
-
     .catch(error => console.log(error.message));
 });
 

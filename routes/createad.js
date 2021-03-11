@@ -11,20 +11,20 @@ const cookieSession = require("cookie-session");
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    const sql = `SELECT * FROM messages
-    JOIN items ON items.id = item_id
-    `;
+    const sql = `SELECT * FROM items`;
 
     return db.query(sql)
 
       .then(data => {
-        const templateVars = { messages: data.rows, current_user_id: req.session.user_id };
-        return res.render("createad", templateVars);
-
+        const user = req.session.user_id;
+        if(user) {
+          const templateVars = { items: data.rows, current_user_id: user };
+          res.render("createad", templateVars);
+        } else {
+          res.redirect("/api/users/login")
+        }
       })
       .catch(error => console.log(error));
-
   });
-
   return router;
 };
