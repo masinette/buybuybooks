@@ -46,7 +46,7 @@ module.exports = (db) => {
     return db.query(sql)
 
       .then(data => {
-        const templateVars = { items: data.rows };
+        const templateVars = { items: data.rows, current_user_id: req.session.user_id };
         return res.render("myads", templateVars);
 
       })

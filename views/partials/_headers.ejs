@@ -11,11 +11,6 @@
     <li><a class="nav-item nav-link" href="/myads">My Ads</a></li>
     <li><a class="nav-item nav-link" href="/sales">My Sales</a></li>
 
-    <a href="/login">
-      <button class="login-button">
-        <span class="button--inner">Login</span>
-      </button>
-    </a>
     <container id=nav-bar>
     <div id="filter-form">
       <form method="GET" action="/search">
@@ -39,25 +34,23 @@
       </form>
     </div>
     <section class="nav-icons">
-
-<<<<<<< HEAD
-    <form action="/logout" method="POST">
-      <button class="login-button" type="submit">
-        <span class="button--inner">Logout</span>
-      </button>
-    </form>
-
-  </nav>
-=======
-      <form action="/logout" method="POST">
-        <button class="login-button" type="submit">
-          <span class="button--inner">Logout</span>
-        </button>
-      </form>
+      <%if (!current_user_id) { %>
+        <a href="/api/users/login">
+          <button class="login-button">
+            <span class="button--inner">Login</span>
+          </button>
+        </a>
+      <% }else{ %>
+        <form action="/api/users/logout" method="POST">
+          <button class="login-button" type="submit">
+            <span class="button--inner">Logout</span>
+          </button>
+        </form>
+        <%}%>
+        
       <a href="http://localhost:8080/favourites"><i class="fas fa-star"></i></a>
       <a href="http://localhost:8080/createad" class="button" style="padding-right: 23px;"><button id="post-ad-nav">Post Ad</button></a>
     </section>
     </container>
     </nav>
->>>>>>> 561c492f42b5ab5afab07087a0ac7dac1e7e3d54
 </header>

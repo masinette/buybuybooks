@@ -73,13 +73,12 @@ app.get("/", (req, res) => {
     .then(data => {
       console.log(data.rows[0])
       console.log("result from items")
-    }
-    )
+      console.log("result session",req.session.user_id)
+      res.render("index", { data, current_user_id: req.session.user_id });
+    })
     .catch(error => console.log(error.message));
-  res.render("index");
 });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
-

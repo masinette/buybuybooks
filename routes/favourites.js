@@ -17,7 +17,7 @@ module.exports = (db) => {
     const sqlQuery = `SELECT * FROM favourites JOIN items ON item_id = items.id WHERE favourites.id IN (SELECT favourites.id FROM favourites);`;
     db.query(sqlQuery)
       .then(data => {
-        const templateVars = { items: data.rows };
+        const templateVars = { items: data.rows, current_user_id: req.session.user_id };
         res.render("favourites", templateVars);
       })
       .catch(err => {
