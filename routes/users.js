@@ -36,23 +36,29 @@ module.exports = (db) => {
     // const userId = req.session;
     // const templateVars = { user: users[userId] };, templateVars)
     res.render("user_login");
+    // res.redirect(`/`);
+    // // const templateVars = { user: users[user_id] };, templateVars)
+    // res.render("user_login");
   });
 
 
   //logout POST route, redirect to main page
   router.post("/login", (req, res) => {
-    let user = req.body.username;
+    const user = req.body.username;
     console.log("username", user);
-    req.session = user;
+    // req.session = user;
 
     const queryString = `SELECT * FROM users WHERE name = $1;`;
     db.query(queryString, [user])
       .then((results) => {
         console.log("results", results.rows);
         if (results.rows.length > 0) {
+          const user = req.body.username;
+          req.session.user_id = user;
           res.redirect("/");
         } else {
-          res.end("Error");
+          res.end('User Does Not Exist.');
+          return;
         }
       })
       .catch((err) => {

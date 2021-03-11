@@ -14,9 +14,8 @@ module.exports = (db) => {
     return db.query(sql)
 
       .then(data => {
-        const templateVars = { messages:data.rows };
+        const templateVars = { messages:data.rows, current_user_id: req.session.user_id};
         return res.render("sales", templateVars);
-
       })
       .catch(error => console.log(error));
 

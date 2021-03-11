@@ -1,20 +1,16 @@
 <header>
   <nav class="nav-bar">
-    <a class="nav-logo" href="/">BuyBuySell</a>
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="nav-logo" href="/">BuyBuySell</a>
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button> -->
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup"></div>
-    <li><a class="nav-item nav-link" href="/messages">My Inbox</a></li>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      </div>
+    <li><a class="nav-item nav-link" href="/messages">Messages</a></li>
     <li><a class="nav-item nav-link" href="/favourites">Favourites</a></li>
     <li><a class="nav-item nav-link" href="/myads">My Ads</a></li>
     <li><a class="nav-item nav-link" href="/sales">My Sales</a></li>
 
-    <a href="/login">
-      <button class="login-button">
-        <span class="button--inner">Login</span>
-      </button>
-    </a>
     <container id=nav-bar>
     <div id="filter-form">
       <form method="GET" action="/search">
@@ -38,12 +34,20 @@
       </form>
     </div>
     <section class="nav-icons">
-
-      <form action="/logout" method="POST">
-        <button class="login-button" type="submit">
-          <span class="button--inner">Logout</span>
-        </button>
-      </form>
+      <%if (!current_user_id) { %>
+        <a href="/api/users/login">
+          <button class="login-button">
+            <span class="button--inner">Login</span>
+          </button>
+        </a>
+      <% }else{ %>
+        <form action="/api/users/logout" method="POST">
+          <button class="login-button" type="submit">
+            <span class="button--inner">Logout</span>
+          </button>
+        </form>
+        <%}%>
+        
       <a href="http://localhost:8080/favourites"><i class="fas fa-star"></i></a>
       <a href="http://localhost:8080/createad" class="button" style="padding-right: 23px;"><button id="post-ad-nav">Post Ad</button></a>
     </section>
