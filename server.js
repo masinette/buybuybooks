@@ -23,7 +23,8 @@ const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
 console.log("connecting to db");
-db.connect().then(() => console.log("connected to db"))
+db.connect()
+  .then(() => console.log("connected to db"))
   .catch((error) => console.log(error.message));
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -58,8 +59,8 @@ app.use((req, res, next) => {
     res.locals.current_user_id = req.session.user_id;
     res.locals.current_username = req.session.username;
   }
-  next()
-})
+  next();
+});
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
@@ -76,20 +77,49 @@ app.use("/createad", createad(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  console.log("getting items");
+  const sortDirection = req.query.q;
   db.query(`SELECT * FROM items;`)
-    .then(data => {
-
+    .then((data) => {
+      function itemsSorter(sortingDir, rows) {
+        if (sortingDir == "asc") {
+          return rows.sort((a, b) => a.price - b.price);
+        }
+        if (sortingDir == "desc") {
+          return rows.sort((a, b) => b.price - a.price);
+        }
+        return rows;
+      }
       // data = req.body;
       // console.log("DATA", data.rows)
-      const templateVars = { items: data.rows, current_user_id: req.session.user_id };
-      // console.log("req session", req.session.user_id)
-      // console.log("data row info", data.rows)
+      const templateVars = {
+        items: itemsSorter(sortDirection, data.rows),
+        current_user_id: req.session.user_id,
+      };
+      // console.log("req session", req.session.user_id);
+      // console.log("data row info", data.rows);
       res.render("index", templateVars);
     })
-    .catch(error => console.log(error.message));
+    .catch((error) => console.log(error.message));
 });
 
+// app.get("/:sortDir", (req, res) => {
+//   const sortingDir = req.query.sortDir;
+//   console.log("sorting dir", sortingDir);
+//   db.query(`SELECT * FROM items;`)
+//     .then((data) => {
+//       console.log("items sorter", itemsSorter(sortingDir, rows));
+//       // data = req.body;
+//       // console.log("DATA", data.rows)
+//       const templateVars = {
+//         items: itemsSorter(sortingDir, data.rows),
+//         current_user_id: req.session.user_id,
+//       };
+//       // console.log("req session", req.session.user_id);
+//       // console.log("data row info", data.rows);
+//       res.render("index", templateVars);
+//     })
+//     .catch((error) => console.log(error.message));
+// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  background: rgb(242, 242, 242);
+  background: #e9c46a;
   top: 0;
   height: 100px;
   width: 100%;
@@ -14,6 +14,7 @@
   font-size: 40px;
   font-family: "DotGothic16";
   display: flex;
+  color: rgb(40, 40, 40);
 }
 
 .nav-bar li {
@@ -22,18 +23,37 @@
   margin: 0;
 }
 
-.login-button {
-  background-color: cornflowerblue;
-  color: white;
-  padding: 8px 20px;
-  border-radius: 20px;
-  text-align: center;
+.buttons {
+  font-family: "DotGothic16";
+  font-size: 1.2em;
+  color: #2a9d8f;
+  display: flex;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  background-color: #dcdbdb;
+  border-radius: 10px;
+  border-style: solid;
 }
+.buttons:hover {
+  color: #f28482;
+}
+/* buttons:focus {
+  outline: 0;
+} */
+
+a:hover {
+  color: #f28482;
+}
+a {
+  text-decoration: none !important;
+}
+
+.price .buttons {
+  text-decoration: none;
+}
+
 .post-ad-button {
   background-color: #efefef;
+  text-decoration: none;
   color: white;
   padding: 8px 20px;
   border-radius: 20px;
