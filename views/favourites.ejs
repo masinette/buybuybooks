@@ -19,6 +19,7 @@
       <link rel="stylesheet" href="./css/header.css" type="text/css" />
       <link rel="stylesheet" href="./css/nav.css" type="text/css" />
       <link rel="stylesheet" href="./css/myads.css" type="text/css" />
+      <link rel="stylesheet" href="./css/favourites.css" type="text/css" />
       <title>My Favourites</title>
   </head>
 
@@ -27,36 +28,24 @@
 <!-- user option bar, includes; my ads, my favourites, my messages
     If you are on any of these pages, the option disappears. Example; if you're on my favs, the bar will only include my ads and my messages -->
       <!-- class fav-out-box, the background has a white box -->
-    <div style="background-color: #CCCCFF;">
+    <div style="background-color: #efefef;">
       <div class="fav-out-box" style="display: flex; justify-content: center;">
         <!-- class row, aligns everything in row, id row is the class that is responsible of making things appear and disappear-->
+
         <div class="row" id="row" style="display: flex; background-color: white; height: 75px; align-items: center; justify-content: space-between; width: 98%; margin-top: 1em;">
           <div style="margin-left: 2em;">&nbsp;Img&nbsp;</div>
           <div>&nbsp;Title&nbsp;</div>
           <div>&nbsp;Price&nbsp;</div>
           <div>&nbsp;Delete&nbsp;</div>
-          <div style="margin-right: 1em;">&nbsp;Options&nbsp;</div>
         </div>
       </div>
-      <!-- class favourites, responsible for scroll -->
-      <!-- <div class="favourites" style="padding-left: 10px;">
-        <article class="sales-out-box">
-          <div
-            style="height: 100px; width: 100px; background-color: blue"
-          ></div>
-          <p>NAME</p>
-          <p>$100</p>
-          <p class="heart-bottom-right">💙</p>
-        </article>
-
-      </div> -->
-      <div style="background-color: white; height: 100%; margin-top: 1em; width: 98%; flex-direction: column; justify-content: center;">
+      <div class="fav-items">
       <% for (item of favourites) { %>
-        <div class="favourites" style="padding-left: 10px;">
+        <div class="favourites">
           <!-- class sales-out-box has white outter background box -->
-          <article class="sales-out-box" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+          <article class="sales-out-box">
             <!-- for the user image -->
-            <div style="height: 100px; width: 100px; background-color: blue; margin-top: 10px;">
+            <div style="height: 100px; width: 100px; margin-top: 10px;">
               <img src= "<%= item.image_url %>" style="height: 100px; width: 100px;"
               height="250px"; width="250px"; alt="<%= item.name %>"/>
             </div>
@@ -66,10 +55,9 @@
             <!-- class heart-bottom-right, aligns the heart to bottom right-->
             <form method="POST" action="/favourites/<%= item.id %>/delete">
             <div>
-              <button class="delete-button" type="submit" style="background-color:blue; color:white;">DELETE</button>
+              <button class="delete-button" type="submit">delete</button>
             </div>
           </form>
-            <p class="heart-bottom-right">💙</p>
             </div>
 
           </article>
