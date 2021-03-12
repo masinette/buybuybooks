@@ -1,20 +1,18 @@
 .nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: fixed;
-  background: beige;
-  --main-bg-color: white;
-  --first-color: #e8e8e8;
-  --second-color: #333;
+  background: rgb(242, 242, 242);
   top: 0;
   height: 100px;
   width: 100%;
   padding: 2rem 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .nav-logo {
   font-size: 40px;
+  font-family: "DotGothic16";
   display: flex;
 }
 
@@ -28,7 +26,17 @@
   background-color: cornflowerblue;
   color: white;
   padding: 8px 20px;
-  border-radius: 5px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.post-ad-button {
+  background-color: #efefef;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
