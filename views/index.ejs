@@ -51,34 +51,20 @@
 
     <div class="container">
       <h1>BUYBUYSELL</h1>
-
-      <!-- feature display area, use jQuery to show random list element in div, and render to page -->
-      <!-- <h4 style="margin-top: 50px;">Features</h4>
-      <div class="horizontal-scroll-wrapper">
-        <% for (item of items) { %>
-        <div class="featureItem">
-          <img src= "<%= item.image_url %>" class="items"
-          height="50px"; width="50px"; alt="<%= item.name %>"/>          <div> -->
-            <!-- <p><%= item.name %></p>
-            <p> $<%= item.price / 100 %></span></p> -->
-          <!-- </div>
-        </div>
-        <% } %> -->
-
       </div>
-
       <!-- Filter button always visible, click to toggle filter option buttons -->
       <div>
         <!-- Filter (change to column), When you click filter button, the price asc and desc option pops up -->
-        <button href="#" class="btn btn-primary" id="toggle_filter">Filter</button>
+        <!-- <button href="#" class="btn btn-primary" id="toggle_filter">Filter</button> -->
         <div class="filterButtons">
 
           <!-- SQL query to sort items by price, asc/desc -->
-          <div style="margin-top: 0.5em;" class="price">
-            <p>Price</p>
-            <div class="btn-group btn-group-justified" id="options">
-              <button><a href="?q=asc" class="btn btn-primary">↑ASC</a></button>
-              <button> <a href="?q=desc" class="btn btn-primary">↓DESC</a></button>
+          <!-- <div style="margin-top: 0.5em;" class="price"> -->
+
+            <div class="price" id="options">
+              <div style="margin-top: 0.5em;" class="price">
+              <button><a href="?q=asc" class="buttons">Low - High</a></button>
+              <button> <a href="?q=desc" class="buttons">High - Low</a></button>
             </div>
           </div>
 

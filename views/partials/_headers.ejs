@@ -5,31 +5,31 @@
         <span class="navbar-toggler-icon"></span>
       </button> -->
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup"></div>
-    <li><a class="nav-item nav-link" href="/messages">Messages</a></li>
-    <li><a class="nav-item nav-link" href="/favourites">Favourites</a></li>
-    <li><a class="nav-item nav-link" href="/myads">My Ads</a></li>
-    <li><a class="nav-item nav-link" href="/sales">My Sales</a></li>
+    <li>
+      <a class="buttons" href="/messages">messages</a>
+    </li>
+    <li>
+      <a class="buttons" href="/favourites">favourites</a>
+    </li>
+    <li><a class="buttons" href="/myads">my ads</a></li>
     <form method="GET" action="/createad">
-      <a
-        href="http://localhost:8080/createad"
-        class="post-ad-button"
-        style="padding-right: 23px"
-        ><button>Post Ad</button></a
+      <a href="http://localhost:8080/createad"
+        ><button class="buttons">post ad</button></a
       >
     </form>
     <container id="nav-bar">
       <section class="nav-icons">
         <%if (!current_user_id) { %>
         <a href="/api/users/login">
-          <button class="login-button">
-            <span class="button--inner">Login</span>
+          <button class="buttons">
+            <span>login</span>
           </button>
         </a>
-      <% }else{ %>
-        <p> Logged In As: <%= current_username %> </p>
+        <% }else{ %>
+        <p>Logged In As: <%= current_username %></p>
         <form action="/api/users/logout" method="POST">
-          <button class="login-button" type="submit">
-            <span class="button--inner">Logout</span>
+          <button class="buttons" type="submit">
+            <span>logout</span>
           </button>
           <!-- <p>Logged In As: <%= current_user_id %></p> -->
         </form>
