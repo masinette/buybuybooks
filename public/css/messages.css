@@ -1,0 +1,39 @@
+.container{
+  margin-top: 150px;
+}
+.contact-container{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px 10px;
+  background-color: rgb(138, 133, 127);
+  border: black solid 2px;
+}
+.messages-box{
+  padding: 10px 10px;
+  margin-bottom: 20px;
+  background-color: #2a9d8f;
+  border: black solid 2px;
+}
+.item-name{
+  font-weight: bold;
+  padding-left: 10px;;
+}
+.item-message{
+  padding-left: 10px;;
+}
+img{
+  border: grey solid 2px;
+}
+button {
+  font-family: "DotGothic16";
+  font-size: 1.2em;
+  color: #2a9d8f;
+  text-decoration: none;
+  background-color: #dcdbdb;
+  border-radius: 10px;
+  border-style: black solid 2px ;
+  padding: 3px;
+}
+button:hover {
+  color: #f28482;
+}

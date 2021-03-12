@@ -32,6 +32,7 @@
   background-color: #dcdbdb;
   border-radius: 10px;
   border-style: solid;
+  padding: 5px;
 }
 .buttons:hover {
   color: #f28482;
