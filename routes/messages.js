@@ -29,9 +29,10 @@ module.exports = (db) => {
     const message = req.body.message;
     const item_id = req.body.item;
     const user_id = req.session.user_id;
+    const username = req.session.username;
     const convo_id = req.params.id;
 
-    console.log("REQBODY", req.body);
+    console.log("USERNAME", username);
     console.log(user_id);
 
     if (!user_id) {

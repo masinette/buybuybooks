@@ -1,0 +1,34 @@
+.fav-items {
+  background-color: white;
+  height: 100%;
+  margin-top: 1em;
+  width: 98%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.favourites {
+  padding-left: 10px;
+}
+
+.sales-out-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-button {
+  font-family: "DotGothic16";
+  font-size: 1.2em;
+  color: #2a9d8f;
+  display: flex;
+  text-decoration: none;
+  background-color: #dcdbdb;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.delete-button:hover {
+  color: #f28482;
+}
