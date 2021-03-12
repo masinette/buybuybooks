@@ -82,6 +82,7 @@
               <!-- </a> -->
               <div class="itemInfo">
                 <p><%= item.name %></p>
+                <% if(!item.sold) { %>
                 <p> $<%= item.price / 100 %></span></p>
                 <!-- <p style="padding-left: 10px;"><%= item.id %></p> -->
                 <form action="/favourites" method = "post">
@@ -92,6 +93,9 @@
                   <input type="hidden" value= "<%= item.id %>" name = "item_id">
                   <button type = "submit">&#128488;</button>
                 </form>
+                <% } else { %>
+                  <p>SOLD!!</p>
+                  <% } %>
               </div>
             </div>
           </article>
