@@ -14,7 +14,8 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    const sqlQuery = `SELECT * FROM favourites JOIN items ON item_id = items.id WHERE favourites.id IN (SELECT favourites.id FROM favourites);`;
+    const sqlQuery = `SELECT * FROM favourites WHERE user_id = $1;`;
+    // const sqlQuery = `SELECT * FROM favourites JOIN items ON item_id = items.id WHERE favourites.id IN (SELECT favourites.id FROM favourites);`;
 
     db.query(sqlQuery)
       .then((data) => {
