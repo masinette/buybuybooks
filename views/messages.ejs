@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="./css/header.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="./css/header.css" type="text/css" />
     <link rel="stylesheet" href="./css/nav.css" type="text/css" />
-    <link rel="stylesheet" href="./css/myads.css" type="text/css" />
+    <link rel="stylesheet" href="./css/myads.css" type="text/css" /> -->
 
         <!-- External JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -48,24 +48,39 @@
           <img src= "<%= item.image_url %>" height="100px"; width="100px"; alt="<%= item.name %>"/>
           <div style="flex-direction: column;">
 
-          <p style="padding-left: 10px;"><%= item.item_id %><br><br><%= item.message %></p>
+          <p style="padding-left: 10px;">Seller:  <%= item.creator_id %><br><br><%= item.message %></p>
           </div>
         </article>
       </div>
 <% } %>
 
 
-<ul>CONTACT SELLER:</ul>
+<ul>CONTACT SELLER:
   <li>
-    <form method="POST" action="/messages>" id="message-buyer-seller">
+    <form method="POST" action="/messages" id="message-buyer-seller">
     <input type="text" name="message" id="message-input"></input>
+    <!-- DROP DOWN MENU, SELECT ITEM -->
+    <select id="items-dropdown" placeholder="items" name="item">
+      <option value="" disabled selected>Items</option>
+      <% for (item of items) { %>
+      <option value = "<%= item.id %>"><%= item.name %></option>
+      <% } %>
+
+
+    </select>
+
+
+
+    <!-- set value to item number, seller. referencing items -->
       <button type="submit" value="submit" id="send-message">Send</button>
     </form>
-
   </li>
 
   <li><a href = "mailto: abc@example.com">Send Email</a></li>
   <li><a href="sms: 4169671111">Send a SMS</a></li>
+</ul>
+
+
 
 
 

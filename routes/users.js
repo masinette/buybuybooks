@@ -53,6 +53,7 @@ module.exports = (db) => {
         if (results.rows.length > 0) {
           const user = req.body.username;
           req.session.user_id = user;
+          req.session.id = results.rows[0].id;
           res.redirect("/");
         } else {
           res.end("User Does Not Exist.");
