@@ -12,7 +12,7 @@ module.exports = (db) => {
       .then((data) => {
         const user = req.session.user_id;
         if (user) {
-          const templateVars = { items: data.rows, current_user_id: user };
+          const templateVars = { items: data.rows };
           res.render("createad", templateVars);
         } else {
           res.redirect("/login");
