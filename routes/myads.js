@@ -77,25 +77,6 @@ module.exports = (db) => {
       });
   });
 
-  // router.post("/:id/edit", (req, res) => {
-  //   const name = req.body.name;
-  //   const price = req.body.item_price;
-  //   const image = req.body.image_url;
-  //   const description = req.body.item_description;
-  //   const user = req.session.user_id;
-
-  //   const sql = `UPDATE items SET name = ${name}, image_url = ${image}, price = ${price}, description = ${description} WHERE id = $1;`;
-  //   return db
-  //     .query(sql, [user, price, name, description, image])
-  //     .then(() => {
-  //       res.redirect("/myads");
-  //     })
-  //     .catch((err) => {
-  //       console.log("error", err);
-  //       res.status(302).json({ error: err.message });
-  //     });
-  // });
-
   router.post("/:id/sold", (req, res) => {
     const itemId = req.params.id;
     const sql = `UPDATE items SET sold = true WHERE id = $1;`;

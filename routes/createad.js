@@ -29,7 +29,7 @@ module.exports = (db) => {
     const description = req.body.item_description;
     const user = req.session.user_id;
 
-    const sql = `INSERT INTO items (creator_id, price, name, description, image_url) SELECT users.id, $2, $3, $4, $5 FROM users WHERE name = $1 RETURNING *;`;
+    const sql = `INSERT INTO items (creator_id, price, name, description, image_url) VALUES ($1, $2, $3, $4, $5);`;
     db.query(sql, [user, price, name, description, image])
       .then((data) => {
         res.redirect(`/myads`);
