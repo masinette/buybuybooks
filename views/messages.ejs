@@ -11,51 +11,46 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="./css/header.css" type="text/css" />
     <link rel="stylesheet" href="./css/nav.css" type="text/css" />
-    <link rel="stylesheet" href="./css/myads.css" type="text/css" />
-
+    <link rel="stylesheet" href="./css/messages.css" type="text/css" />
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- External JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <!-- App JS -->
  <script type="text/javascript" src="/scripts/messages.js"></script>
-
     <title>My Messages</title>
 </head>
-<body style="margin-top: 10%;">
+<body>
   <%- include('partials/_headers.ejs') %>
+  <div class = "container">
   <main>
-  <p>MY MESSAGES</p>
+  <h2>MY MESSAGES: </h2>
     <!-- user option bar, includes; my ads, my favourites, my messages
     If you are on any of these pages, the option disappears. Example; if you're on my favs, the bar will only include my ads and my messages -->
       <!-- class fav-out-box, the background has a white box -->
-
-      <div style="display: flex; flex-direction: row;"></div>
-
-
-      <p>
-      </p>
-
 <% for (item of messages) { %>
-      <div class="favourites" style="padding-left: 10px; background-color: #F0F0F0;">
+      <div class="messages-box" >
         <!-- class sales-out-box has white outter background box -->
         <article class="sales-out-box" style="display: flex; flex-direction: row;">
           <!-- for the user image -->
-          <p><%= item.name %></p>
           <img src= "<%= item.image_url %>" height="100px"; width="100px"; alt="<%= item.name %>"/>
-          <div style="flex-direction: column;">
-
-          <p style="padding-left: 10px;">Seller:  <%= item.creator_id %><br><br><%= item.message %></p>
-          </div>
+          <div>
+          <p class = "item-name"><%= item.name %></p>
+          <p class = "item-message"><br><%= item.message %></p>
+        </div>
         </article>
       </div>
 <% } %>
-
-<% %>
-<ul>CONTACT SELLER:
+<div class = "contact-container">
+<ul style = "list-style: none;"> <h3>CONTACT SELLER:</h3>
   <li>
     <form method="POST" action="/messages" id="message-buyer-seller">
     <input type="text" name="message" id="message-input"></input>
@@ -65,23 +60,48 @@
       <% for (item of items) { %>
       <option value = "<%= item.id %>"><%= item.name %></option>
       <% } %>
-
-
     </select>
-
     <!-- set value to item number, seller. referencing items -->
       <button type="submit" value="submit" id="send-message">Send</button>
     </form>
   </li>
-
-  <li><a href = "mailto: <%= item.email %> >">Send Email</a></li>
-  <li><a href="sms: 4169671111">Send a SMS</a></li>
+  <!-- <li><a href = "mailto: abc@example.com">Send Email</a></li>
+  <li><a href="sms: 4169671111">Send a SMS</a></li> -->
+  <li>
+    <form method="POST" action="/messages" id="message-buyer-seller">
+    <!-- <input type="text" name="message" id="message-input"></input> -->
+    <!-- DROP DOWN MENU, SELECT ITEM -->
+    <select id="items-dropdown" placeholder="items" name="item">
+      <option value="" disabled selected>Items</option>
+      <% for (item of items) { %>
+      <option value = "<%= item.id %>"><%= item.name %></option>
+      <% } %>
+    </select>
+    <!-- set email to seller email -->
+      <button type="submit" value="submit" id="send-message">
+        <a href = "mailto: abc@example.com">Send Email</a>
+      </button>
+    </form>
+  </li>
+  <li>
+    <form method="POST" action="/messages" id="message-buyer-seller">
+    <!-- <input type="text" name="message" id="message-input"></input> -->
+    <!-- DROP DOWN MENU, SELECT ITEM -->
+    <select id="items-dropdown" placeholder="items" name="item">
+      <option value="" disabled selected>Items</option>
+      <% for (item of items) { %>
+      <option value = "<%= item.id %>"><%= item.name %></option>
+      <!-- <option value = "<%= item.creator_id %>"><%= item%></option> -->
+      <% } %>
+    </select>
+    <button type="submit" value="submit" id="send-message">
+      <a href="sms: 9059671111">Send a SMS</a>
+    </button>
+  </form>
+</li>
 </ul>
-
-
-
-
-
+</div>
   </main>
+</div>
 </body>
 </html>

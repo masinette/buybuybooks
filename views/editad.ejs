@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="wclassth=device-wclassth, initial-scale=1.0"
+    />
+
+    <!-- fonts should go below -->
+    <!-- css -->
+
+    <!-- bootstrap -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -11,17 +18,24 @@
       crossorigin="anonymous"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <title>Home Page</title>
+
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="./css/header.css" type="text/css" />
     <link rel="stylesheet" href="./css/nav.css" type="text/css" />
-    <link rel="stylesheet" href="./css/myads.css" type="text/css" />
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+  </head>
     <title>Edit Ad</title>
-</head>
 <body style="margin: 1em;">
   <%- include('partials/_headers.ejs') %>
-  <div style="padding-top: 125px;">
+  <div>
     <h3>Edit Ad</h3>
       <form class="form-inline" action="/myads/<%= item.id %>/edit" method="POST">
         <div class="form-group mb-2" style="flex-direction: column; align-items: flex-start; font-weight: bold;">
