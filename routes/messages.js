@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const usersRoutes = require("./users");
 
 module.exports = (db) => {
   //MESSAGE ROUTES
@@ -11,7 +12,7 @@ module.exports = (db) => {
 
     return Promise.all([db.query(messagesQuery), db.query(itemsQuery)])
 
-    //data is an array of the return values from Promise.all
+      //data is an array of the return values from Promise.all
       .then(data => {
         const messages = data[0].rows;
         const items = data[1].rows;
@@ -31,6 +32,9 @@ module.exports = (db) => {
     console.log("REQBODY", req.body);
     console.log(user_id);
 
+    if (!user_id) {
+      return res.redirect("/api/users/login");
+    }
     // query to get items table
     const sql = `SELECT * FROM items JOIN messages ON items.id = item_id;`;
     db.query(sql)
@@ -62,6 +66,3 @@ module.exports = (db) => {
 
   return router;
 };
-
-
-
