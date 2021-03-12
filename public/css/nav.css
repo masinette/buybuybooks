@@ -1,20 +1,18 @@
 .nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: fixed;
   background: rgb(242, 242, 242);
-  --main-bg-color: white;
-  --first-color: #e8e8e8;
-  --second-color: #333;
   top: 0;
   height: 100px;
   width: 100%;
   padding: 2rem 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .nav-logo {
   font-size: 40px;
+  font-family: "DotGothic16";
   display: flex;
 }
 

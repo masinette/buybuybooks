@@ -25,7 +25,8 @@
             <span class="button--inner">Login</span>
           </button>
         </a>
-        <% }else{ %>
+      <% }else{ %>
+        <p> Logged In As: <%= current_username %> </p>
         <form action="/api/users/logout" method="POST">
           <button class="login-button" type="submit">
             <span class="button--inner">Logout</span>

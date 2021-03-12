@@ -14,9 +14,11 @@ module.exports = (db) => {
 
       //data is an array of the return values from Promise.all
       .then(data => {
+        // const templateVars = { messages: data.rows };
+
         const messages = data[0].rows;
         const items = data[1].rows;
-        const templateVars = { messages, current_user_id: req.session.user_id, items };
+        const templateVars = { messages, items };
         return res.render("messages", templateVars);
       })
       .catch(error => console.log(error));
