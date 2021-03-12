@@ -50,7 +50,7 @@ module.exports = (db) => {
     const queryString = `SELECT * FROM users WHERE name = $1;`;
     db.query(queryString, [user])
       .then((results) => {
-        console.log(results.rows[0])
+        // console.log(results.rows[0])
         if (results.rows.length > 0) {
           const user = results.rows[0].id;
           const username = results.rows[0].name;
